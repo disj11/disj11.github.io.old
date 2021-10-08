@@ -12,7 +12,7 @@ draft: false
 
 ## Workflows
 
-`workflow` 는 하나 이상의 작업으로 구성된 자동화 프로세스이다. 워크플로는 `.yml` 또는 `.yaml` 파일을 생성하여 구성할 수 있으며, 반드시 레포지토리의 `.github/workflows` 폴더에 저장되어야 한다. 구성 파일을 작성 방법은 [workflow syntax for github actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)에서 확인할 수 있으며, 이 포스트에서는 `on` 과 `jobs` 에 대해서만 간단히 알아보고, 배포 자동화를 위한 설정 파일을 제공한다. 배포 자동화를 위한 설정 파일만 보고 싶다면 [다음 단계](https://www.notion.so/GitHub-Pages-10af52b6102641f9822056a5ad83a844)로 넘어간다.
+`workflow` 는 하나 이상의 작업으로 구성된 자동화 프로세스이다. 워크플로는 `.yml` 또는 `.yaml` 파일을 생성하여 구성할 수 있으며, 반드시 레포지토리의 `.github/workflows` 폴더에 저장되어야 한다. 구성 파일을 작성 방법은 [workflow syntax for github actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)에서 확인할 수 있으며, 이 포스트에서는 `on` 과 `jobs` 에 대해서만 간단히 알아보고, 배포 자동화를 위한 설정 파일을 제공한다. 배포 자동화를 위한 설정 파일만 보고 싶다면 [다음 단계](#설정-파일)로 넘어간다.
 
 ### on
 
