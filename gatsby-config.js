@@ -118,10 +118,23 @@ module.exports = {
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_ADMIN_KEY,
-        queries: require("./src/utils/algolia-queries")
+        appId: process.env.ALGOLIA_APP_ID,
+        // Use Admin API key without GATSBY_ prefix, so that the key isn't exposed in the application
+        // Tip: use Search API key with GATSBY_ prefix to access the service from within components
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        queries: require("./src/utils/algolia-queries"),
+        chunkSize: 10000, // default: 1000
+        settings: {
+          // optional, any index settings
+          // Note: by supplying settings, you will overwrite all existing settings on the index
+        },
+        enablePartialUpdates: true, // default: false
+        matchFields: ['slug', 'modified'], // Array<String> default: ['modified']
+        concurrentQueries: false, // default: true
+        skipIndexing: true, // default: false, useful for e.g. preview deploys or local development
+        continueOnFailure: false, // default: false, don't fail the build if algolia indexing fails
       },
-    }
+    },
   ],
 }
