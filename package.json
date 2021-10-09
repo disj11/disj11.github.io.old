@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "tykim",
   "dependencies": {
+    "@reflexjs/gatsby-plugin-search-algolia": "^0.5.4",
     "gatsby": "^2.2.8",
     "gatsby-image": "^2.0.34",
     "gatsby-plugin-feed": "^2.1.0",
