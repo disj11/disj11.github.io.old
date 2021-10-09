@@ -1,0 +1,28 @@
+.search-box {
+  display: flex;
+  margin: 0;
+
+  .search-input {
+    margin-left: -2.3em;
+    padding: 0.3em 0.3em 0.3em 2.3em;
+    width: 15em;
+    transition: width ease-in .2s;
+
+    &.open {
+      cursor: text;
+    }
+
+    &.close {
+      width: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+
+  .search-icon {
+    z-index: 1;
+    width: 2em;
+    pointer-events: none;
+  }
+}

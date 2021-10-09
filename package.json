@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "tykim",
   "dependencies": {
+    "@styled-icons/fa-solid": "^10.34.0",
+    "algoliasearch": "^4.10.5",
     "gatsby": "^2.2.8",
     "gatsby-image": "^2.0.34",
     "gatsby-plugin-algolia": "^0.22.2",
@@ -41,6 +43,7 @@
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
+    "react-instantsearch-dom": "^6.12.1",
     "react-switch": "^5.0.0",
     "react-typography": "^0.16.13",
     "smooth-scroll": "^16.0.0",
