@@ -115,6 +115,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-lodash`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
