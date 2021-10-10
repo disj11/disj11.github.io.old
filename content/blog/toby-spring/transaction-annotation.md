@@ -1,7 +1,7 @@
 ---
 title: 트랜잭션 어노테이션
 date: 2021-10-08 21:10:03
-category: spring
+category: toby-spring
 draft: false
 ---
 

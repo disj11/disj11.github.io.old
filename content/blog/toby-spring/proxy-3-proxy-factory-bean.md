@@ -1,17 +1,17 @@
 ---
 title: 프록시 3 - 프록시 팩토리 빈과 빈 후처리기
 date: 2021-09-27 23:50:95
-category: spring
+category: toby-spring
 draft: false
 ---
 
 ## 개요
 
-[이전 포스트](/spring/proxy-2-dynamic-proxy)에서 프록시 팩토리와 한계점에 관하여 알아보았다. 이번 포스트에서는 이러한 한계점을 스프링은 어떤 방식으로 해결책을 제시하였는지 알아보자.
+[이전 포스트](/toby-spring/proxy-2-dynamic-proxy)에서 프록시 팩토리와 한계점에 관하여 알아보았다. 이번 포스트에서는 이러한 한계점을 스프링은 어떤 방식으로 해결책을 제시하였는지 알아보자.
 
 ## ProxyFactoryBean
 
-스프링은 프록시 오브젝트를 생성해주는 기술을 추상화한 팩토리 빈을 제공해준다. `ProxyFactoryBean` 이 스프링에서 제공해주는 팩토리 빈이다. `FactoryBean<T>` 을 상속받아서 구현했던 [TxProxyFactoryBean](https://www.notion.so/2-439670511c854cd4860a7c9226041826)과 달리 `ProxyFactoryBean` 는 순수하게 프록시를 생성하는 작업만을 담당하고, 프록시를 통해 제공해줄 부가기능은 별도의 빈에 둘 수 있다.
+스프링은 프록시 오브젝트를 생성해주는 기술을 추상화한 팩토리 빈을 제공해준다. `ProxyFactoryBean` 이 스프링에서 제공해주는 팩토리 빈이다. `FactoryBean<T>` 을 상속받아서 구현했던 [TxProxyFactoryBean](/toby-spring/proxy-2-dynamic-proxy#tx-proxy-factory-bean)과 달리 `ProxyFactoryBean` 는 순수하게 프록시를 생성하는 작업만을 담당하고, 프록시를 통해 제공해줄 부가기능은 별도의 빈에 둘 수 있다.
 
 ## MethodInterceptor
 
@@ -23,7 +23,7 @@ draft: false
 
 ### 어드바이스
 
-먼저 [InvocationHandler](/proxy-2-dynamic-proxy#transaction-handler)를 구현했던 코드를 `MethodInterceptor` 를 구현하도록 변경한다.
+먼저 [InvocationHandler](/toby-spring/proxy-2-dynamic-proxy#transaction-handler)를 구현했던 코드를 `MethodInterceptor` 를 구현하도록 변경한다.
 
 ```java
 public class TransactionAdvice implements MethodInterceptor {

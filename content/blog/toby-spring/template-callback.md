@@ -1,7 +1,7 @@
 ---
-title: '템플릿/콜백 패턴의 이해'
+title: 템플릿/콜백 패턴의 이해
 date: 2021-9-27 23:24:13
-category: 'spring'
+category: toby-spring
 draft: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 프록시 1 - 프록시와 프록시를 사용한 패턴
 date: 2021-09-27 23:37:93
-category: spring
+category: toby-spring
 draft: false
 ---
 
@@ -11,7 +11,7 @@ draft: false
 
 ## Service
 
-[트랜잭션 서비스 추상화](/spring/abstract-transaction-model#user-service) 포스트에서 다음과 같은 유저 등급 설정 메서드를 만든 적이 있다.
+[트랜잭션 서비스 추상화](/toby-spring/abstract-transaction-model#user-service) 포스트에서 다음과 같은 유저 등급 설정 메서드를 만든 적이 있다.
 
 ```java
 public class UserService {
@@ -167,4 +167,4 @@ list.add(4);
 
 두 번째 문제는 코드 분리를 통해 어떻게든 해결한다고 하고, 첫 번째 문제는 어떻게 해결할 수 있을까?
 
-[다음 포스트](/spring/proxy-2-dynamic-proxy)를 통해 해결 방법을 알아보자.
+[다음 포스트](/toby-spring/proxy-2-dynamic-proxy)를 통해 해결 방법을 알아보자.

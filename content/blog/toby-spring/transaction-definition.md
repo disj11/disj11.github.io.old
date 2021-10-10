@@ -1,7 +1,7 @@
 ---
 title: 트랜잭션 속성
 date: 2021-10-01 22:30:53
-category: spring
+category: toby-spring
 draft: false
 ---
 

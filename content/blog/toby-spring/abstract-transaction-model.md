@@ -1,7 +1,7 @@
 ---
 title: 트랜잭션 서비스 추상화
 date: 2021-09-27 23:28:33
-category: spring
+category: toby-spring
 draft: false
 ---
 
@@ -51,7 +51,7 @@ try (Connection c = dataSource.getConnection()) {
 
 ## 트랜잭션 도입시 문제점 1
 
-스프링의 `JdbcTemplate` 은 내부적으로 getConnection() 메서드를 호출하여 Connection 오브젝트를 가져오고, 작업이 종료될 때 Connection을 닫는다. 앞에서 작성한 [UserService](https://velog.io/@disj11/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%B6%94%EC%83%81%ED%99%94#service)에 사용된 UserDao에 JdbcTemplate을 사용했다고 한다면, UserDao는 각 메서드마다 독립적인 트랜잭션으로 실행될 수 밖에 없다.
+스프링의 `JdbcTemplate` 은 내부적으로 getConnection() 메서드를 호출하여 Connection 오브젝트를 가져오고, 작업이 종료될 때 Connection을 닫는다. 앞에서 작성한 [UserService](#Service)에 사용된 UserDao에 JdbcTemplate을 사용했다고 한다면, UserDao는 각 메서드마다 독립적인 트랜잭션으로 실행될 수 밖에 없다.
 
 ![트랜잭션 처리 과정](images/transaction-process-flow.png)
 

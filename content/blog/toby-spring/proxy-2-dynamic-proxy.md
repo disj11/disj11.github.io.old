@@ -1,13 +1,13 @@
 ---
 title: 프록시 2 - 다이내믹 프록시와 팩토리 빈
 date: 2021-09-27 23:44:94
-category: spring
+category: toby-spring
 draft: false
 ---
 
 ## 개요
 
-이번 포스트에서는 [이전 포스트](/spring/proxy-1-proxy-and-pattern)에서 다뤘던 프록시의 문제를 해결하기 위한 다이내믹 프록시에 대해서 알아보고, 다이내믹 프록시를 적용하여 기존 코드의 문제를 해결해보자.
+이번 포스트에서는 [이전 포스트](/toby-spring/proxy-1-proxy-and-pattern)에서 다뤘던 프록시의 문제를 해결하기 위한 다이내믹 프록시에 대해서 알아보고, 다이내믹 프록시를 적용하여 기존 코드의 문제를 해결해보자.
 
 ## 리플렉션
 
@@ -188,6 +188,8 @@ public interface FactoryBean<T> {
 
 다음은 팩토리 빈을 구현한 클래스이다.
 
+<div id="tx-proxy-factory-bean">
+
 ```java
 public class TxProxyFactoryBean implements FactoryBean<Object> {
 	Object target;
@@ -222,6 +224,8 @@ public class TxProxyFactoryBean implements FactoryBean<Object> {
 	}
 }
 ```
+
+</div>
 
 빈으로 등록시 사용할 설정 값은 다음과 같다.
 
@@ -293,4 +297,4 @@ public class FactoryBeanTest {
 
 지금 만들어본 프록시 팩토리는 타깃 정보를 갖고 있다. 이러한 구조상의 문제로 여러 개의 클래스의 메서드에 부가기능을 적용하고 싶다면, 거의 비슷한 프록시 팩토리 빈의 설정이 중복되는 것을 막을 수 없다. 만약 타깃이 같다고 하더라도 여러 개의 부가기능을 적용하고 싶다고 하면 비슷한 문제가 발생한다. 또 다른 문제로 `TransactionHandler` 의 오브젝트가 프록시 팩토리 빈의 개수만큼 만들어진다는 것이다. `TransactionHandler` 가 타깃의 정보를 갖고 있기 때문에 발생하는 문제이다.
 
-[다음 포스트](/spring/proxy-3-proxy-factory-bean)에서는 이런 한계를 해결하기 위한 방법을 알아보자.
+[다음 포스트](/toby-spring/proxy-3-proxy-factory-bean)에서는 이런 한계를 해결하기 위한 방법을 알아보자.
