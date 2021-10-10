@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { rhythm } from '../utils/typography'
 import * as Lang from '../constants'
 
-export default ({ data }) => {
+const About = ({ data }) => {
   const resumes = data.allMarkdownRemark.edges
 
   const resume = resumes
@@ -27,6 +27,7 @@ export default ({ data }) => {
   )
 }
 
+export default About;
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(filter: { frontmatter: { category: { eq: null } } }) {

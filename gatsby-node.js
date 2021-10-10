@@ -1,13 +1,13 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const {createFilePath} = require(`gatsby-source-filesystem`)
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+exports.createPages = ({graphql, actions}) => {
+    const {createPage} = actions
 
-  const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
+    const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
 
-  return graphql(
-    `
+    return graphql(
+        `
       {
         allMarkdownRemark(
           filter: { frontmatter: { category: { ne: null }, draft: { eq: false } } }
@@ -44,37 +44,55 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `
-  ).then(result => {
-    if (result.errors) {
-      throw result.errors
-    }
+    ).then(result => {
+        if (result.errors) {
+            throw result.errors
+        }
 
-    // Create blog posts pages.
-    const posts = result.data.allMarkdownRemark.edges;
-    posts.forEach((post) => {
-      createPage({
-        path: post.node.fields.slug,
-        component: blogPostTemplate,
-        context: {
-          slug: post.node.fields.slug,
-          previous: post.next,
-          next: post.previous,
-        },
-      })
+        // Create blog posts pages.
+        const posts = result.data.allMarkdownRemark.edges;
+        posts.forEach((post) => {
+            createPage({
+                path: post.node.fields.slug,
+                component: blogPostTemplate,
+                context: {
+                    slug: post.node.fields.slug,
+                    previous: post.next,
+                    next: post.previous,
+                },
+            })
+        })
     })
-  })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({node, actions, getNode}) => {
+    const {createNodeField} = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    if (node.internal.type === `MarkdownRemark`) {
+        const value = createFilePath({node, getNode})
 
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
+        createNodeField({
+            name: `slug`,
+            node,
+            value,
+        })
+    }
+}
+
+module.exports.onCreateWebpackConfig = ({
+                                            stage,
+                                            actions,
+                                            getConfig
+                                        }) => {
+    if (stage === 'build-javascript' || stage === 'develop') {
+        const config = getConfig()
+
+        const miniCssExtractPlugin = config.plugins.find(
+            plugin => (plugin.constructor.name === 'MiniCssExtractPlugin')
+        )
+
+        if (miniCssExtractPlugin) miniCssExtractPlugin.options.ignoreOrder = true
+
+        actions.replaceWebpackConfig(config)
+    }
 }

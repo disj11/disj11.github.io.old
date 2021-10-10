@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import Image from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import './index.scss'
 
@@ -14,14 +14,13 @@ export const Bio = () => (
         <div className="bio">
           <div className="author">
             <div className="author-description">
-              <Image
+              <GatsbyImage
+                image={data.avatar.childImageSharp.gatsbyImageData}
                 className="author-image"
-                fixed={data.avatar.childImageSharp.fixed}
                 alt={author}
                 style={{
                   borderRadius: `100%`,
-                }}
-              />
+                }} />
               <div className="author-name">
                 <span className="author-name-prefix">Written by</span>
                 <Link to={'/about'} className="author-name-content">
@@ -60,35 +59,32 @@ export const Bio = () => (
             </div>
           </div>
         </div>
-      )
+      );
     }}
   />
 )
 
-const bioQuery = graphql`
-  query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile.png/" }) {
-      childImageSharp {
-        fixed(width: 72, height: 72) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+const bioQuery = graphql`query BioQuery {
+  avatar: file(absolutePath: {regex: "/profile.png/"}) {
+    childImageSharp {
+      gatsbyImageData(width: 72, height: 72, layout: FIXED)
     }
-    site {
-      siteMetadata {
-        author
-        introduction
-        social {
-          twitter
-          github
-          medium
-          facebook
-          linkedin
-          instagram
-        }
+  }
+  site {
+    siteMetadata {
+      author
+      introduction
+      social {
+        twitter
+        github
+        medium
+        facebook
+        linkedin
+        instagram
       }
     }
   }
+}
 `
 
 export default Bio
