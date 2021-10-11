@@ -47,7 +47,7 @@ public @interface Transactional {
 }
 ```
 
-트랜잭션 어노테이션은 메소드, 클래스, 인터페이스에 적용할 수 있다. 각각의 트랜잭션 속성이 어떤 역할을 하는지 알고 싶다면 [트랜잭션 속성](https://www.notion.so/TransactionDefinition-75d9471e4e3246a4a68420056b6524d6) 포스트를 참고한다.
+트랜잭션 어노테이션은 메소드, 클래스, 인터페이스에 적용할 수 있다. 각각의 트랜잭션 속성이 어떤 역할을 하는지 알고 싶다면 [트랜잭션 속성](/toby-spring/transaction-definition) 포스트를 참고한다.
 
 ## 대체 정책
 

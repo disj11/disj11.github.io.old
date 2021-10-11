@@ -41,11 +41,11 @@ int length = lengthodMethod.invoke(name);
 
 다이내믹 프록시는 프록시 팩토리에 의해 런타임 시 다이내믹하게 만들어지는 오브젝트이며, 타깃의 인터페이스와 같은 타입으로 만들어진다. 다음 그림은 다이내믹 프록시가 동작하는 방식이다.
 
-![다이내믹 프록시 동작 방식](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd1d5e91-9143-4f90-96d1-f6a1ed79242f/Untitled.png)
+![다이내믹 프록시 동작 방식](images/dynamic-proxy-mechanism.png)
 
 다이내믹 프록시를 사용하려면, 그림에서 보는 것과 같이 다이내믹 프록시로부터 메소드 호출 정보를 받아서 처리하는 `InvocationHandler` 의 구현체를 만들어야 한다. 다이내믹 프록시는 모든 요청을 `InvocationHandler` 의 `incoke()` 메소드로 보내주기 때문에 아무리 메서드가 많더라도 `invoke()` 메서드 하나로 처리할 수 있다.
 
-![InvocationHandler를 통한 요청 처리 구조](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd3ff6bd-bf62-4ed9-9cff-518b39eb4f28/Untitled.png)
+![InvocationHandler를 통한 요청 처리 구조](images/invocation-handler-process.png)
 
 이제 다이내믹 프록시를 적용해보자.
 
@@ -146,7 +146,7 @@ public class TransactionHandler implements InvocationHandler {
 
 요청을 위임할 `target` 과 어떤 메서드에 부가 기능을 적용할 지 설정할 수 있는 `pattern` 을 제공받도록 하였다. `Method.invoke()` 를 이용해 타깃 오브젝트의 메서드를 호출할 때는 타깃 오브젝트에서 발생하는 예외가 `InvocationTargetException` 으로 포장되어 전달되기때문에 `getTargetException()` 메서드로 중첩되어있는 예외를 가져오도록 하였다.
 
-만들어본 코드는 이전 포스트에서 만들었던 [UserServiceTx](https://www.notion.so/1-0fddedcaaaf344f482835cab17388afb)와 같은 기능을 하지만, `UserService` 뿐만 아니라 트랜잭션이 필요한 모든 오브젝트에 적용할 수 있다. 만들어진 `TransactionHandler` 를 사용하는 방법은 다음과 같다.
+만들어본 코드는 이전 포스트에서 만들었던 [UserServiceTx](/toby-spring/proxy-2-dynamic-proxy#user-service-tx)와 같은 기능을 하지만, `UserService` 뿐만 아니라 트랜잭션이 필요한 모든 오브젝트에 적용할 수 있다. 만들어진 `TransactionHandler` 를 사용하는 방법은 다음과 같다.
 
 ```java
 TransactionHandler txHandler = new TransactionHandler();
@@ -276,7 +276,7 @@ public class FactoryBeanTest {
 
 앞서 설명한대로 팩토리 빈 자체가 아닌 FactoryBean에 의해 생성된 오브젝트가 빈 오브젝트로 사용되므로 `@Autowired` 를 통해 `UserService` 를 DI 받을 수 있다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c63ff751-22dc-47a3-ace9-bd46222e6be5/Untitled.png)
+![](images/factory-bean.png)
 
 만약 팩토리 빈 자체를 사용하고 싶다면 빈 이름 앞에 `&` 를 붙이기만 하면 된다.
 

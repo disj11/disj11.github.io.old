@@ -73,6 +73,8 @@ public class UserServiceImpl implements UserService {
 
 비지니스 로직을 분리하였으므로, 이제 트랜잭션 처리를 담은 `UserServiceTx`를 만들어보자.
 
+<div id="user-service-tx">
+
 ```java
 public class UserServiceTx implements UserService {
 	UserService userService;
@@ -98,6 +100,8 @@ public class UserServiceTx implements UserService {
 	}
 }
 ```
+
+</div>
 
 이렇게 만든 `UserServiceTx`를 사용할 때에는 `UserServiceImpl` 을 주입하여 사용할 수 있다.   `UserServiceTx`는 트랜잭션의 경계설정을 맡고, 실제 처리는 주입된 `UserServiceImpl` 에게 위임하는 구조이다.
 

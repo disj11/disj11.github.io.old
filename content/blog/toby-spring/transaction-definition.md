@@ -58,7 +58,7 @@ A 트랜잭션이 시작되고 아직 끝나지 않은 상태에서 B 를 호출
 
 ### 트랜잭션 속성을 가진 트랜잭션 어드바이스 등록
 
-스프링에는 트랜잭션 경계설정 어드바이스로 사용할 수 있도록 `TransactionInterceptor` 를 제공한다. 이 어드바이스는 `PlatformTransactionManager` 와 `Properties` 타입의 프로퍼티를 갖고 있다. PlatformTransactionManager에 대해서는 [이 포스트](https://www.notion.so/PlatformTransactionManager-ca2de99caac04986bc8bd8da54a743d5)에서 설명한 적이 있다. Properties는 일종의 맵 타입 오브젝트이며, 이 속성을 통해 `TransactionAttribute` 를 전달 받는다. 트랜잭션 속성은 다음과 같은 문자열로 정의할 수 있다.
+스프링에는 트랜잭션 경계설정 어드바이스로 사용할 수 있도록 `TransactionInterceptor` 를 제공한다. 이 어드바이스는 `PlatformTransactionManager` 와 `Properties` 타입의 프로퍼티를 갖고 있다. PlatformTransactionManager에 대해서는 [이 포스트](/toby-spring/transaction-definition)에서 설명한 적이 있다. Properties는 일종의 맵 타입 오브젝트이며, 이 속성을 통해 `TransactionAttribute` 를 전달 받는다. 트랜잭션 속성은 다음과 같은 문자열로 정의할 수 있다.
 
 ```xml
 PROPAGATION_NAME, ISOLATION_NAME, readOnly, timeout_NNNN, -Exception1, +Exception2
