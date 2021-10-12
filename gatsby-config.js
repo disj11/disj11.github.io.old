@@ -98,7 +98,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://disj11.github.io',
-        sitemap: 'https://disj11.github.io/sitemap.xml',
+        sitemap: 'https://disj11.github.io/sitemap/sitemap-index.xml',
         policy: [
           {
             userAgent: '*',
