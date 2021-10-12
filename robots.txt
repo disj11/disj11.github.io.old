@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://disj11.github.io/sitemap.xml
+Sitemap: https://disj11.github.io/sitemap/sitemap-index.xml
 Host: https://disj11.github.io
