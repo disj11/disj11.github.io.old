@@ -1,5 +1,5 @@
 ---
-title: ITEM2. 생성자에 매개변수가 많다면 빌더를 고려하라
+title: ITEM 2. 생성자에 매개변수가 많다면 빌더를 고려하라
 date: 2021-10-10 19:10:06
 category: effective-java
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: ITEM1. 생성자 대신 정적 팩터리 메서드를 고려하라
+title: ITEM 1. 생성자 대신 정적 팩터리 메서드를 고려하라
 date: 2021-10-10 18:10:48
 category: effective-java
 draft: false
@@ -7,7 +7,7 @@ draft: false
 
 생성자 대신 정적 팩터리 메서드를 사용할때의 장점과 단점을 알아보자
 
-### **장점**
+## 장점
 
 ### 1. 이름을 갖을 수 있다.
 
@@ -29,7 +29,7 @@ draft: false
 
 이러한 특성은 서비스 제공자 프레임워크(service provider framework)를 만드는 근간이 된다. 대표적으로 JDBC의 서비스 접근 API역할을 하는 `DriverManager.getConnection`이 정적 팩터리를 사용한 것이다.
 
-### **단점**
+## 단점
 
 ### 1. 하위 클래스를 만들 수 없다.
 
@@ -72,6 +72,6 @@ draft: false
   `List<Complaint> litany = Collections.list(legacyLitany);`
 
 
-### **정리**
+## 정리
 
 정적 팩터리 메서드를 사용하는 것이 유리한 경우가 많으므로, 무작정 public 생성자를 제공하던 습관을 고치고 정적 팩터리 메서드의 사용을 고려하자.
