@@ -11,7 +11,7 @@
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-algolia": "^0.22.2",
     "gatsby-plugin-feed": "^3.14.0",
-    "gatsby-plugin-google-analytics": "^3.14.0",
+    "gatsby-plugin-google-gtag": "^3.14.0",
     "gatsby-plugin-image": "^1.14.1",
     "gatsby-plugin-lodash": "^4.14.0",
     "gatsby-plugin-manifest": "^3.14.0",
