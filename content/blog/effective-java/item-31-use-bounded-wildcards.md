@@ -7,7 +7,7 @@ draft: false
 
 ## 개요
 
-[ITEM 28](/effective-java/item-28-prefer-lists-to-arrays)에서 이야기 했듯 `List<String>`과 같은 매개변수화(parameterized) 타입은 불공변이다. `List<String>`은 `List<Object>`의 하위 타입이 아니라는 것이다. 마찬가지로 `List<Object>`는 `List<String>`의 상위 타입이 아니다. 하지만 때로는 불공변 방식보다 유연한 무언가가 필요할 때가 있다. 예시 코드를 살펴보며 유연한 API를 만들 수 있는 방법을 알아보자.
+[ITEM 28](/effective-java/item-28-prefer-lists-to-arrays)에서 이야기 했듯 `List<String>`과 같은 매개변수화(parameterized) 타입은 불공변이다. `List<String>`은 `List<Object>`의 하위 타입이 아니며, `List<Object>`는 `List<String>`의 상위 타입이 아니라는 것이다. 하지만 때로는 불공변 방식보다 유연한 무언가가 필요할 때가 있다. 예시 코드를 살펴보며 유연한 API를 만들 수 있는 방법을 알아보자.
 
 ## 예시
 
@@ -45,7 +45,7 @@ public void pushAll(Collection<? extends E> src) {
 }
 ```
 
-이렇게 바꾸고 나니 오류가 났던 코드가 말끔히 컴파일 된다. 여기서 사용한 `Collection<? extends E>`가 한정적 와일드카드를 사용한 것이며, 'E의 하위 타입의 Collection' 이라는 의미이다. 하위 타입이란 물론 자기 자신도 포함된다.
+코드를 변경하고 나면 오류 없이 말끔히 컴파일 된다. 여기서 사용한 `Collection<? extends E>`가 한정적 와일드카드를 사용한 것이며, 'E의 하위 타입의 Collection' 이라는 의미이다. (하위 타입이란 자기 자신도 포함된다.)
 
 이번에는 `Stack` 클래스에 `popAll` 메서드를 추가해보자.
 
@@ -57,7 +57,7 @@ public void popAll(Collection<E> dst) {
 }
 ```
 
-현재 `Stack`에 있는 원소를 `dst`로 옮겨주는 메서드이다. 이번에도 문제가 없을 것 같지만 다음 코드를 보자.
+현재 `Stack`에 있는 원소를 `dst`로 옮겨주는 메서드이다. 정상적으로 작동하는지 확인해보자.
 
 ```java
 Stack<Number> numberStack = new Stack<>();
@@ -65,7 +65,7 @@ Collection<Object> objects = new ArrayList<>();
 numberStack.popAll(objects); // Error
 ```
 
-마찬가지로 `numberStack.popAll(objects);` 구문에서 컴파일 오류가 발생한다. 이번에도 와일드카드 타입을 사용하도록 변경해보자.
+한정적 와일드카드 타입을 사용하기 전의 `pushAll` 메서드 처럼 `numberStack.popAll(objects);` 구문에서 컴파일 오류가 발생한다. 여기에도 와일드카드 타입을 사용하도록 변경해보자.
 
 ```java
 public void popAll(Collection<? super E> dst) {
@@ -75,7 +75,7 @@ public void popAll(Collection<? super E> dst) {
 }
 ```
 
-바꾼 후에는 오류가 없어진다. 여기서 사용한 `Collection<? super E>`는 'E의 상위 타입의 Collection' 이어야 한다는 의미이다. (모든 타입은 자기 자신의 상위 타입이다.)
+변경 후에는 오류가 없어진다. 여기서 사용한 `Collection<? super E>`는 'E의 상위 타입의 Collection' 이어야 한다는 의미이다. (모든 타입은 자기 자신의 상위 타입이다.)
 
 ## 팁
 
