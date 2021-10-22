@@ -5,24 +5,24 @@ category: development
 draft: false
 ---
 
-## Introduction
+# Introduction
 
-OAuth는 오픈 API의 인증(authentication)[^1]과 권한 부여(authorization)[^2]를 제공하기 위해 만들어진 프로토콜이다. OAuth 1.0을 거쳐 현재는 OAuth 2.0 표준안인 [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749)가 널리 사용되고 있다. OAuth 2.0에 대해 알아보자.
+OAuth는 오픈 API의 인증(authentication; 이 사용자가 누구인가?)과 권한 부여(authorization; 로그인 한 사용자가 무엇을 할 수 있는가?)를 제공하기 위해 만들어진 프로토콜이다. OAuth 1.0을 거쳐 현재는 OAuth 2.0 표준안인 [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749)가 널리 사용되고 있다. OAuth 2.0에 대해 알아보자.
 
-### Rules
+## Rules
 
 OAuth 2.0에서는 아래와 같이 4가지 역할을 정의한다.
 
-1. 리소스 소유자 (Resource Owner)
+1. 리소스 소유자 (Resource Owner)  
    보호된 리소스의 소유자를 뜻한다. 예를 들어 계좌 잔액이라는 리소스가 있다고 한다면, 계좌의 소유자가 리소스 소유자에 해당된다.
-2. 리소스 서버 (Resource Service)
+2. 리소스 서버 (Resource Service)  
    보호된 리소스를 제공하는 서버를 의미한다. 예를 들어 오픈뱅킹 서버를 들 수 있다. 오픈뱅킹 서버는 은행들의 API를 사용하여 계좌와 관련된 각종 리소스를 제공해주는 리소스 서버이다.
-3. 클라이언트 (Client)
+3. 클라이언트 (Client)  
    오픈 API를 호출하는 응용 프로그램을 의미한다.
-4. 인증 서버 (Authorization Server)
+4. 인증 서버 (Authorization Server)  
    리소스 소유자로부터 접근 권한을 획득한 이후에 자원에 접근하기 위한 토큰(Access Token)을 발급해주는 서버를 말한다.
 
-### Protocol Flow
+## Protocol Flow
 
 다음의 표는 OAuth 2.0의 대략적인 흐름을 나타낸다.
 
@@ -53,11 +53,11 @@ OAuth 2.0에서는 아래와 같이 4가지 역할을 정의한다.
 5. 클라이언트는 Access Token을 사용하여 리소스 서버에게 보호된 리소스를 요청한다.
 6. 리소스 서버는 Access Token이 유효한지 확인하고, 유효한 경우 리소스를 제공한다.
 
-### Access Token
+## Access Token
 
 Access Token은 보호된 리소스에 접근하기 위해 사용된다. 클라이언트에게 발급된 인가를 나타내는 문자열이며, 보통 클라이언트가 알아볼 수 없다. 토큰에는 리소스에 접근할 수 있는 범위와 기간이 명시된다. 리소스 소유자에 의해 생성되고, 리소스 서버와 인증 서버에서 사용된다.
 
-### Refresh Token
+## Refresh Token
 
 Refresh Token은 접근 토큰을 얻는 데 사용된다. Access Token이 유효하지 않거나 만료된 경우 새로운 Access Token을 얻거나, 동일하거나 더 좁은 범위로 추가적인 Access Token을 얻기 위해 사용된다. Refresh Token의 발급은 인증 서버의 선택 사항이다. 만약 인가 서버가 Refresh Token을 발급한다면 [Protocol Flow](#protocol-flow)의 2번에서 Access Token과 함께 발급한다.
 
@@ -85,11 +85,11 @@ Refresh Token은 클라이언트가 리소스 소유자에 의해 인가가 승�
 |        |<-(8)----------- Access Token -------------|               |
 ```
 
-## Obtaining Authorization
+# Obtaining Authorization
 
 OAuth는 네 가지 승인 유형(Authorization Code Grant, Implicit Grant, Authorization Request, Access Token Response)을 제공한다. 이 포스팅에서는 네이버, 카카오 등에서 가장 많이 사용되는 Authorization Code Grant 방식에 대해서만 설명한다. 다른 승인 유형에 관한 내용은 [rfc6749#section-4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1)를 참고한다.
 
-### Authorization Code Grant
+## Authorization Code Grant
 
 이 승인 유형은 Access Token과 Refresh Token을 모두 발급받기 위해 사용된다. 기밀 클라이언트에 최적화 되어 있다. 리다이렉션을 기반으로 동작하기 때문에 클라이언트는 리소스 소유자의 User-Agent(일반적으로 웹 브라우저)와 상호작용 할 수 있어야 하며, 인증 서버로부터 들어오는 요청을 받을 수 있어야 한다.
 
@@ -135,7 +135,7 @@ OAuth는 네 가지 승인 유형(Authorization Code Grant, Implicit Grant, Auth
 
 이 이미지에서 파란색 박스(카카오톡으로 로그인)을 클릭하면 1번 과정이 진행되는 것이고, 빨간색 박스의 동의하고 계속하기 버튼을 누르면 2번 과정의 승인을 하는 것이다.
 
-#### Authorization Request
+### Authorization Request
 
 클라이언트는 인증 코드 요청을 할 때 `application/x-www-form-urlencoded` 를 사용하여 다음 파라미터를 포함해야한다.
 
@@ -157,7 +157,7 @@ GET /oauth/authorize?client_id={REST_API_KEY}&redirect_uri={REDIRECT_URI}&respon
 Host: kauth.kakao.com
 ```
 
-#### Authorization Response
+### Authorization Response
 
 리소스 소유자가 접근 요청을 승인하면, 인증 서버는 다음의 파라미터를 `application/x-www-form-urlencoded` 를 사용하여 클라이언트에게 전달한다.
 
@@ -209,7 +209,7 @@ Content-Length: 0
 Location: {REDIRECT_URI}?error=access_denied&error_description=User%20denied%20access
 ```
 
-#### Access Token Request
+### Access Token Request
 
 클라이언트는 토큰 요청시 UTF-8 인코딩을 사용하여 `application/x-www-form-urlencoded` 형식으로 된 다음과 같은 파라미터를 body에 담아야한다.
 
@@ -224,11 +224,11 @@ Location: {REDIRECT_URI}?error=access_denied&error_description=User%20denied%20a
 
 > 클라이언트 인증에 관해서는 이 포스팅에서 설명하지 않으며, 혹시 내용이 궁금하다면 [rfc6749#section-3.2.1](https://datatracker.ietf.org/doc/html/rfc6749#section-3.2.1)를 참고한다.
 
-#### Access Token Response
+### Access Token Response
 
 Access Token 요청이 유효하고 인증되었다면, 인증 서버는 Access Token과 선택적으로 갱신 토큰을 발급한다.
 
-##### 성공 응답
+#### Successful Response
 
 인증 서버는 Access Token과 선택적으로 갱신 토큰을 발급하고, 다음 파라미터를 200 (OK) 상태 코드로 응답한다. 파라미터는 `application/json` 유형을 사용하여 HTTP Response Body에 포함한다.
 
@@ -258,7 +258,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-##### 실패 응답
+#### Error Response
 
 인증 서버는 다음 파라미터를 400 (Bad Request) 상태 코드로 응답한다. 파라미터는 `application/json` 유형을 사용하여 HTTP Response Body에 포함한다.
 
@@ -298,20 +298,16 @@ Pragma: no-cache
 }
 ```
 
-## 사용 예
+# 사용 예
 
-### 카카오
+## 카카오
 
 우리가 잘 아는 카카오에서도 OAuth를 사용한다. [카카오 로그인](https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api) REST API 문서를 확인해보면, 카카오 로그인을 위해서 인가 코드 받기, 토큰 받기 두 과정을 거친다. 이 과정이 [Authorization Code Grant](#authorization-code-grant)와 동일하다. 이렇게 발급받은 토큰은 [카카오스토리 API](https://developers.kakao.com/docs/latest/ko/kakaostory/rest-api) 등을 사용할 때 필요하다. 예를 들어 카카오스토리의 프로필 가져오기 API를 사용하려면 이 발급받은 토큰이 필요하다. 이 과정이 [Protocol Flow](#protocol-flow)의 5,6번 과정에 속한다.
 
-### 네이버
+## 네이버
 
 네이버도 OAuth를 이용하며, [네이버 로그인 API 명세](https://developers.naver.com/docs/login/api/api.md)에서 확인할 수 있다. 카카오와 마찬가지로 인가 코드 받기, 토큰 받기 두 과정을 거친다. 이렇게 발급받은 토큰을 사용하여 회원 프로필 조회 API, 카페 API 등을 사용할 수 있다.
 
-## 마무리
+# 마무리
 
 이 포스팅은 소셜 로그인 구현에 도움이 되는 내용에 초점을 맞춰 생략된 부분이 많다. 만약 OAuth 2.0에 대해 더 자세히 알고 싶다면, [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749)을 참고하는 것이 좋다.
-
-[^1]: 이 사용자가 누구인가?
-[^2]: 로그인 한 사용자가 무엇을 할 수 있는가?
-
