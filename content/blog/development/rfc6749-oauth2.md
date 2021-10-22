@@ -55,13 +55,13 @@ OAuth 2.0에서는 아래와 같이 4가지 역할을 정의한다.
 
 ## Access Token
 
-Access Token은 보호된 리소스에 접근하기 위해 사용된다. 클라이언트에게 발급된 인가를 나타내는 문자열이며, 보통 클라이언트가 알아볼 수 없다. 토큰에는 리소스에 접근할 수 있는 범위와 기간이 명시된다. 리소스 소유자에 의해 생성되고, 리소스 서버와 인증 서버에서 사용된다.
+Access Token은 보호된 리소스에 접근하기 위해 사용된다. 리소스 소유자에 의해 생성되고, 리소스 서버와 인증 서버에서 사용된다.
 
 ## Refresh Token
 
-Refresh Token은 접근 토큰을 얻는 데 사용된다. Access Token이 유효하지 않거나 만료된 경우 새로운 Access Token을 얻거나, 동일하거나 더 좁은 범위로 추가적인 Access Token을 얻기 위해 사용된다. Refresh Token의 발급은 인증 서버의 선택 사항이다. 만약 인가 서버가 Refresh Token을 발급한다면 [Protocol Flow](#protocol-flow)의 2번에서 Access Token과 함께 발급한다.
+Refresh Token은 접근 토큰을 얻는 데 사용된다. Access Token이 유효하지 않거나 만료된 경우 새로운 Access Token을 얻거나, 동일하거나 더 좁은 범위로 추가적인 Access Token을 얻기 위해 사용된다. Refresh Token의 발급은 인증 서버의 선택 사항이다. 만약 인가 서버가 Refresh Token을 발급한다면 [Protocol Flow](#protocol-flow)의 4번에서 Access Token과 함께 발급한다.
 
-Refresh Token은 클라이언트가 리소스 소유자에 의해 인가가 승인되었음을 나타내는 문자열이며, 보통 클라이언트가 알아볼 수 없다. AccessToken과는 달리 인증 서버에서만 사용되며, 리소스 서버로 전송되지 않는다. 아래의 표는 Refresh Token을 이용해 Access Token을 갱신하는 흐름이다.
+AccessToken과는 달리 인증 서버에서만 사용되며, 리소스 서버로 전송되지 않는다. 아래의 표는 Refresh Token을 이용해 Access Token을 갱신하는 흐름이다.
 
 ```
 +--------+                                           +---------------+
@@ -133,7 +133,7 @@ OAuth는 네 가지 승인 유형(Authorization Code Grant, Implicit Grant, Auth
 
 ![](images/oauth/kakao_login.png)
 
-이 이미지에서 파란색 박스(카카오톡으로 로그인)을 클릭하면 1번 과정이 진행되는 것이고, 빨간색 박스의 동의하고 계속하기 버튼을 누르면 2번 과정의 승인을 하는 것이다.
+이 이미지에서 파란색 박스(카카오톡으로 로그인)을 클릭하면 1번 과정이 진행되는 것이고, 빨간색 박스가 클라이언트의 접근 요청을 승인할 것인지 선택하는 2번 과정이다.
 
 ### Authorization Request
 
