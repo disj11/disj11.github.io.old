@@ -121,7 +121,7 @@ OAuth는 네 가지 승인 유형(Authorization Code Grant, Implicit Grant, Auth
 +---------+       (w/ Optional Refresh Token)
 ```
 
-> **NOTE**: 1,2,3 단계는 User-Agent를 통해 전달되므로 부 부분으로 나뉘어 짐
+> **NOTE**: 1,2,3 단계는 User-Agent를 통해 전달되므로 두 부분으로 나뉘어 짐
 
 1. 클라이언트가 리소스 소유자의 User-Agent를 인증 Endpoint로 이동시키며 흐름이 시작된다. 클라이언트는 자신의 식별자, requested scope, local state, 인증이 승인 또는 거부될 경우 User-Agent를 돌려보낼 리다이렉션 URI을 포함한다.
 2. 인증 서버는 User-Agent를 통해 리소스 소유자를 인증하고, 리소스 소유자는 User-Agent를 통해 클라이언트의 접근 요청에 승인 혹은 거부할 지 결정한다.
