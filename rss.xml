@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Logs RSS Feed]]></title><description><![CDATA[개발과 관련된 내용을 기록하는 곳 입니다.]]></description><link>https://disj11.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 22 Oct 2021 16:25:15 GMT</lastBuildDate><item><title><![CDATA[OAuth에 대하여 알아보자.]]></title><description><![CDATA[Introduction OAuth는 오픈 API의 인증(authentication; 이 사용자가 누구인가?)과 권한 부여(authorization; 로그인 한 사용자가 무엇을 할 수 있는가?)를 제공하기 위해 만들어진 프로토콜이다. OAuth 1.…]]></description><link>https://disj11.github.io/development/rfc6749-oauth2/</link><guid isPermaLink="false">https://disj11.github.io/development/rfc6749-oauth2/</guid><pubDate>Fri, 22 Oct 2021 10:09:27 GMT</pubDate><content:encoded>&lt;h1 id=&quot;introduction&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;OAuth는 오픈 API의 인증(authentication; 이 사용자가 누구인가?)과 권한 부여(authorization; 로그인 한 사용자가 무엇을 할 수 있는가?)를 제공하기 위해 만들어진 프로토콜이다. OAuth 1.0을 거쳐 현재는 OAuth 2.0 표준안인 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749&quot;&gt;RFC 6749&lt;/a&gt;가 널리 사용되고 있다. OAuth 2.0에 대해 알아보자.&lt;/p&gt;
-&lt;h2 id=&quot;rules&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#rules&quot; aria-label=&quot;rules permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Rules&lt;/h2&gt;
-&lt;p&gt;OAuth 2.0에서는 아래와 같이 4가지 역할을 정의한다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Logs RSS Feed]]></title><description><![CDATA[개발과 관련된 내용을 기록하는 곳 입니다.]]></description><link>https://disj11.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 23 Oct 2021 01:47:47 GMT</lastBuildDate><item><title><![CDATA[OAuth에 대하여 알아보자.]]></title><description><![CDATA[소개 OAuth는 오픈 API의 인증(authentication)과 권한 부여(authorization)를 제공하기 위해 만들어진 프로토콜이다. OAuth 1.0과 OAuth 2.0이 있는데, 현재는 RFC 5849에서 설명하는 OAuth 1.…]]></description><link>https://disj11.github.io/development/rfc6749-oauth2/</link><guid isPermaLink="false">https://disj11.github.io/development/rfc6749-oauth2/</guid><pubDate>Fri, 22 Oct 2021 10:09:27 GMT</pubDate><content:encoded>&lt;h2 id=&quot;소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소개&lt;/h2&gt;
+&lt;p&gt;OAuth는 오픈 API의 인증(authentication)과 권한 부여(authorization)를 제공하기 위해 만들어진 프로토콜이다. OAuth 1.0과 OAuth 2.0이 있는데, 현재는 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc5849&quot;&gt;RFC 5849&lt;/a&gt;에서 설명하는 OAuth 1.0을 폐기하고, &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749&quot;&gt;RFC 6749&lt;/a&gt;에 설명된 OAuth 2.0 방식을 사용한다. 이번 포스팅에서는 OAuth 2.0에 관하여 알아본다.&lt;/p&gt;
+&lt;h2 id=&quot;역할-rules&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%AD%ED%95%A0-rules&quot; aria-label=&quot;역할 rules permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;역할 (Rules)&lt;/h2&gt;
+&lt;p&gt;OAuth 2.0을 이해하기 위해서는 먼저 OAuth 2.0에서 정의하는 4가지 역할에 관하여 알아야한다.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;리소스 소유자 (Resource Owner)&lt;br&gt;
-보호된 리소스의 소유자를 뜻한다. 예를 들어 계좌 잔액이라는 리소스가 있다고 한다면, 계좌의 소유자가 리소스 소유자에 해당된다.&lt;/li&gt;
-&lt;li&gt;리소스 서버 (Resource Service)&lt;br&gt;
-보호된 리소스를 제공하는 서버를 의미한다. 예를 들어 오픈뱅킹 서버를 들 수 있다. 오픈뱅킹 서버는 은행들의 API를 사용하여 계좌와 관련된 각종 리소스를 제공해주는 리소스 서버이다.&lt;/li&gt;
-&lt;li&gt;클라이언트 (Client)&lt;br&gt;
-오픈 API를 호출하는 응용 프로그램을 의미한다.&lt;/li&gt;
-&lt;li&gt;인증 서버 (Authorization Server)&lt;br&gt;
-리소스 소유자로부터 접근 권한을 획득한 이후에 자원에 접근하기 위한 토큰(Access Token)을 발급해주는 서버를 말한다.&lt;/li&gt;
+&lt;li&gt;Resource Owner (리소스 소유자)&lt;/li&gt;
+&lt;li&gt;Resource Service (리소스 서버)&lt;/li&gt;
+&lt;li&gt;Client (클라이언트)&lt;/li&gt;
+&lt;li&gt;Authorization Server (인증 서버)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;protocol-flow&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#protocol-flow&quot; aria-label=&quot;protocol flow permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Protocol Flow&lt;/h2&gt;
-&lt;p&gt;다음의 표는 OAuth 2.0의 대략적인 흐름을 나타낸다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;리소스 소유자&lt;/strong&gt;는 보호된 리소스의 소유자를 말한다. 예를 들어 은행관련 서비스에서 계좌 잔액이라는 리소스가 있다면, 이 계좌의 소유주(예금주)가 리소스의 소유자가 된다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;리소스 서버&lt;/strong&gt;는 보호된 리소스를 제공하는 서버를 말한다. 예를 들어 &lt;a href=&quot;https://www.openbanking.or.kr/&quot;&gt;오픈뱅킹&lt;/a&gt; 서비스는 각 은행들의 API를 연동하여 다양한 리소스(거래내역, 계좌실명 등)를 제공한다. 이런 경우 오픈뱅킹의 서버가 리소스 서버라고 할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;클라이언트&lt;/strong&gt;는 오픈 API를 호출하는 응용 프로그램을 말한다. 예를 들어 오픈뱅킹 API를 이용하여 모든 은행들의 잔액을 볼 수 있는 어플리케이션을 만들었다면, 이 어플리케이션이 클라이언트가 된다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;인증 서버&lt;/strong&gt;는 리소스 소유자로부터 리소스에 접근 권한을 획득한 이후에 리소스에 접근하기 위한 엑세스 토큰(Access Token)을 발급해주는 서버를 말한다.&lt;/p&gt;
+&lt;h2 id=&quot;oauth-20의-흐름&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#oauth-20%EC%9D%98-%ED%9D%90%EB%A6%84&quot; aria-label=&quot;oauth 20의 흐름 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;OAuth 2.0의 흐름&lt;/h2&gt;
+&lt;p&gt;다음 그림은 OAuth 2.0의 대략적인 흐름을 나타낸다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;+--------+                               +---------------+
 |        |--(1)- Authorization Request -&gt;|   Resource    |
 |        |                               |     Owner     |
@@ -31,19 +31,23 @@
 |        |                               |     Server    |
 |        |&amp;lt;-(6)--- Protected Resource ---|               |
 +--------+                               +---------------+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그림을 보고 하나씩 짚어보자.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;클라이언트는 리소스 서버에 접속하여 API를 사용하기 위해, 먼저 리소스 소유자에게 인증을 요청해야한다. 인증 요청은 리소스 소유자에게 직접 할 수도 있지만, 중간에 인증 서버를 통해 간접적으로 하는 것이 좋다.&lt;/li&gt;
-&lt;li&gt;클라이언트는 인가 승인을 받는다. 인가 승인은 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-1.3&quot;&gt;인가 승인 유형&lt;/a&gt; 중 한 가지를 선택하여 사용한다.&lt;/li&gt;
-&lt;li&gt;클라이언트는 리소스 서버에게 (2)에서 승인 받은 인가를 제시하여 Access Token을 요청한다.&lt;/li&gt;
-&lt;li&gt;리소스 서버는 클라이언트의 권한이 유효한지 확인하고, 유효한 경우 Acess Token을 발급한다.&lt;/li&gt;
-&lt;li&gt;클라이언트는 Access Token을 사용하여 리소스 서버에게 보호된 리소스를 요청한다.&lt;/li&gt;
-&lt;li&gt;리소스 서버는 Access Token이 유효한지 확인하고, 유효한 경우 리소스를 제공한다.&lt;/li&gt;
+&lt;li&gt;리소스 서버에게 리소스를 요청하기 전에 먼저 인증을 요청한다. 인증 요청은 리소스 소유자에게 직접 할 수도 있지만, 중간에 인증 서버를 통해 간접적으로 하는 것이 좋다.&lt;/li&gt;
+&lt;li&gt;클라이언트는 리소스 소유자의 인가를 나타내는 자격정보인 &lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%EC%8A%B9%EC%9D%B8-authorization-grant&quot;&gt;“인가 승인”&lt;/a&gt;을 받는다.&lt;/li&gt;
+&lt;li&gt;클라이언트는 2번에서 받은 인가 승인을 사용하여 엑세스 토큰을 요청한다.&lt;/li&gt;
+&lt;li&gt;인증 서버는 클라이언트를 인증하고, 제시된 인가 승인이 유효한지 확인한다. 유효한 경우 엑세스 토큰을 발급한다.&lt;/li&gt;
+&lt;li&gt;클라이언트는 엑세스 토큰을 제시하여 리소스 서버에 보호된 리소스를 요청한다.&lt;/li&gt;
+&lt;li&gt;리소스 서버는 엑세스 토큰이 유효한지 확인하고, 유효한 경우 요청을 받아들인다.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;access-token&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#access-token&quot; aria-label=&quot;access token permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Access Token&lt;/h2&gt;
-&lt;p&gt;Access Token은 보호된 리소스에 접근하기 위해 사용된다. 리소스 소유자에 의해 생성되고, 리소스 서버와 인증 서버에서 사용된다.&lt;/p&gt;
-&lt;h2 id=&quot;refresh-token&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#refresh-token&quot; aria-label=&quot;refresh token permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Refresh Token&lt;/h2&gt;
-&lt;p&gt;Refresh Token은 접근 토큰을 얻는 데 사용된다. Access Token이 유효하지 않거나 만료된 경우 새로운 Access Token을 얻거나, 동일하거나 더 좁은 범위로 추가적인 Access Token을 얻기 위해 사용된다. Refresh Token의 발급은 인증 서버의 선택 사항이다. 만약 인가 서버가 Refresh Token을 발급한다면 &lt;a href=&quot;#protocol-flow&quot;&gt;Protocol Flow&lt;/a&gt;의 4번에서 Access Token과 함께 발급한다.&lt;/p&gt;
-&lt;p&gt;AccessToken과는 달리 인증 서버에서만 사용되며, 리소스 서버로 전송되지 않는다. 아래의 표는 Refresh Token을 이용해 Access Token을 갱신하는 흐름이다.&lt;/p&gt;
+&lt;h2 id=&quot;인가-승인-authorization-grant&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%EC%8A%B9%EC%9D%B8-authorization-grant&quot; aria-label=&quot;인가 승인 authorization grant permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인가 승인 (Authorization Grant)&lt;/h2&gt;
+&lt;p&gt;“인가 승인”은 리소스 소유자가 보호된 리소스에 대한 접근을 허용한다는 것을 나타내는 자격 정보(Credentials)이다. 이는 클라이언트가 엑세스 토큰을 얻기 위해 사용된다. 인가 승인에는 네 가지 유형이 있다. 이번 포스팅에서는 네 가지 유형 중 인가 코드(authorization code) 방식에 대해서만 설명하며, 추가적인 유형은 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-1.3&quot;&gt;RFC 6749 - Authorization Grant&lt;/a&gt;를 참고한다.&lt;/p&gt;
+&lt;h3 id=&quot;인가-코드-authorization-code&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%EC%BD%94%EB%93%9C-authorization-code&quot; aria-label=&quot;인가 코드 authorization code permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인가 코드 (Authorization Code)&lt;/h3&gt;
+&lt;p&gt;클라이언트는 사용자 에이전트(User-Agent)를 통해 리소스 소유자를 인증 서버로 안내한다. 인증 서버는 리소스 소유자를 인증하고, 인증이 완료되면 클라이언트는 인증 코드를 획득한다. 네이버 로그인이나 카카오 로그인 API가 사용하는 인가 승인 유형이 바로 이 유형이다.&lt;/p&gt;
+&lt;h2 id=&quot;엑세스-토큰-access-token&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%91%EC%84%B8%EC%8A%A4-%ED%86%A0%ED%81%B0-access-token&quot; aria-label=&quot;엑세스 토큰 access token permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;엑세스 토큰 (Access Token)&lt;/h2&gt;
+&lt;p&gt;엑세스 토큰은 보호된 리소스에 접근할 수 있도록 하는 권한 증명이다. 엑세스 토큰으로 접근할 수 있는 리소스의 범위와 사용할 수 있는 기간이 정해져 있다.&lt;/p&gt;
+&lt;h2 id=&quot;리프레시-토큰-refresh-token&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A6%AC%ED%94%84%EB%A0%88%EC%8B%9C-%ED%86%A0%ED%81%B0-refresh-token&quot; aria-label=&quot;리프레시 토큰 refresh token permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;리프레시 토큰 (Refresh Token)&lt;/h2&gt;
+&lt;p&gt;리프레시 토큰은 엑세스 토큰을 얻는 데 사용할 수 있는 권한 증명이다. 엑세스 토큰이 유효하지 않거나, 만료된 경우 새로운 엑세스 토큰을 발급 받기 위해 사용된다. 더 좁은 범위로 추가적인 엑세스 토큰을 받기 위해 사용되기도 한다. 아래의  그림은 리프레시 토큰을 사용하여 엑세스 토큰을 갱신하는 흐름을 보여준다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;+--------+                                           +---------------+
 |        |--(1)------- Authorization Grant ---------&gt;|               |
 |        |                                           |               |
@@ -63,10 +67,11 @@
 |        |--(7)----------- Refresh Token -----------&gt;|               |
 |        |                                           |               |
 |        |&amp;lt;-(8)----------- Access Token -------------|               |&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&quot;obtaining-authorization&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#obtaining-authorization&quot; aria-label=&quot;obtaining authorization permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Obtaining Authorization&lt;/h1&gt;
-&lt;p&gt;OAuth는 네 가지 승인 유형(Authorization Code Grant, Implicit Grant, Authorization Request, Access Token Response)을 제공한다. 이 포스팅에서는 네이버, 카카오 등에서 가장 많이 사용되는 Authorization Code Grant 방식에 대해서만 설명한다. 다른 승인 유형에 관한 내용은 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-4.1&quot;&gt;rfc6749#section-4.1&lt;/a&gt;를 참고한다.&lt;/p&gt;
-&lt;h2 id=&quot;authorization-code-grant&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#authorization-code-grant&quot; aria-label=&quot;authorization code grant permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Authorization Code Grant&lt;/h2&gt;
-&lt;p&gt;이 승인 유형은 Access Token과 Refresh Token을 모두 발급받기 위해 사용된다. 기밀 클라이언트에 최적화 되어 있다. 리다이렉션을 기반으로 동작하기 때문에 클라이언트는 리소스 소유자의 User-Agent(일반적으로 웹 브라우저)와 상호작용 할 수 있어야 하며, 인증 서버로부터 들어오는 요청을 받을 수 있어야 한다.&lt;/p&gt;
+&lt;h2 id=&quot;인가-획득-obtaining-authorization&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%ED%9A%8D%EB%93%9D-obtaining-authorization&quot; aria-label=&quot;인가 획득 obtaining authorization permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인가 획득 (Obtaining Authorization)&lt;/h2&gt;
+&lt;p&gt;클라이언트가 리소스 소유자로부터 인가를 획득하는 과정에 대해 알아보자. &lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%EC%8A%B9%EC%9D%B8-authorization-grant&quot;&gt;인가 승인&lt;/a&gt;에서 알아본 것처럼 인가 획득을 위한 유형에는 네 가지가 있지만, 이 포스팅에서는 &lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%EC%BD%94%EB%93%9C-authorization-code&quot;&gt;인가 코드&lt;/a&gt;를 사용하여 인가를 획득하는 과정에 대해서만 설명한다.&lt;/p&gt;
+&lt;p&gt;인가 코드 승인 유형은 리다이렉션이 기반이 된다. 때문에 클라이언트는 리소스 소유자의 유저 에이전트(일반적으로 웝 브라우저)와 상호작용 할 수 있어야하며, 리다이렉션을 통해 인증 서버로 오는 요청을 받을수 있어야 한다.&lt;/p&gt;
+&lt;h3 id=&quot;인가-코드-승인-유형-흐름&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%EC%BD%94%EB%93%9C-%EC%8A%B9%EC%9D%B8-%EC%9C%A0%ED%98%95-%ED%9D%90%EB%A6%84&quot; aria-label=&quot;인가 코드 승인 유형 흐름 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인가 코드 승인 유형 흐름&lt;/h3&gt;
+&lt;p&gt;다음 그림은 인가 코드 방식의 흐름을 보여준다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;+----------+
 | Resource |
 |   Owner  |
@@ -92,42 +97,35 @@
 |         |                                             |
 |         |&amp;lt;---(5)----- Access Token -------------------&apos;
 +---------+       (w/ Optional Refresh Token)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: 1,2,3 단계는 User-Agent를 통해 전달되므로 두 부분으로 나뉘어 짐&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;클라이언트가 리소스 소유자의 User-Agent를 인증 Endpoint로 이동시키며 흐름이 시작된다. 클라이언트는 자신의 식별자, requested scope, local state, 인증이 승인 또는 거부될 경우 User-Agent를 돌려보낼 리다이렉션 URI을 포함한다.&lt;/li&gt;
-&lt;li&gt;인증 서버는 User-Agent를 통해 리소스 소유자를 인증하고, 리소스 소유자는 User-Agent를 통해 클라이언트의 접근 요청에 승인 혹은 거부할 지 결정한다.&lt;/li&gt;
-&lt;li&gt;리소스 소유자가 접근 요청을 승인했다고 가정하여, 인증 서버는 User-Agent를 제공된 리다이렉션 URI로 이동시킨다. 이때 리다이렉션 URI에는 인증 코드와 local state가 포함된다.&lt;/li&gt;
-&lt;li&gt;클라이언트는 이전 단계에서 받은 인증 코드를 포함하여 인증 서버에 Access Token을 요청한다. 이 때 인증 코드를 얻기 위해 사용했던(3번 과정) 리다이렉션 URI을 포함한다. 요청을 보낼때 클라이언트는 인증 서버에 인증한다.&lt;/li&gt;
-&lt;li&gt;인증 서버는 인증 코드가 유효한지 확인하고, 3번에서 사용한 리다이렉션 URI와 4번에서 전달받은 리다이렉션 URI가 동일한지 확인한다. 유효하다는 게 확인되면 Access Token과, (선택적으로) Refresh Token을 응답한다.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;1번, 2번 과정의 이해를 돕기 위해 다음 그림을 보자.&lt;/p&gt;
+&lt;p&gt;1,2,3번의 과정이 두 부분으로 나누어 지는데, 이는 유저 에이전트를 통해 전달되기 때문이다.&lt;/p&gt;
+&lt;p&gt;1번은 클라이언트가 리소스 소유자의 유저 에이전트를 인증 서버로 안내하며 흐름을 시작하는 과정이다. 클라이언트는 클라이언트의 식별자(client identifier), 요청 범위(requested scope), 로컬 상태(local state), 리다이렉션 URI를 포함해야한다. 네이버 아이디로 로그인 API를 연동한 어플리케이션에서 [네이버 아이디로 로그인] 버튼을 누르면 흐름이 시작되는데, 이 과정이라고 생각하면 된다.&lt;/p&gt;
+&lt;p&gt;2번은 인증 서버가 유저 에이전트를 통해 리소스 소유자를 인증하고, 리소스 소유자가 클라이언트의 접근 요청에 승인 혹은 거부할 지를 선택하는 단계이다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1193px; &quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 85%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABYlAAAWJQFJUiTwAAAC7ElEQVQ4y21U204TURTln3z1wQfDB5CYFAHBhLEXEhM+wgQTiBd8NbxKNPHFRBPkIlEsrdyEaaGlV0qHTi/TmbZz5r7MPtMpUNnJyjlzZmbttdeePSM6Y2CGMYBhmjAti683z7ptBfVCDvXiXcijnj9HR2lhhAhd14XneRy2bYMxBsdx+DXdo0gn4og+nUFEmEVMmEWU1mcCx1wkjPDUBPa3N28TUmiaikwmA8uy+LXrOnw93vmJWCSC5/PzCEdjiMzNQQhHIITDEKIxTE9OILG5fk1Ioes9yHINzWYDtVoNlmUC8BMVj4+wuLCAD6urkCQJ2WwWiqJA0zRuyenfIyS3NjDCDAbHBUdbNVCVmpDrKqSrFrSOw88pcod7+PzpIw4OD9Hr9bgtN0MqFX1C0wZql18gpe/hUnyI3MEocoejKB6Pop59gGrqPtptEanEHgrZM96wcrnMPSa/TdPkhKVsBn+I0LAAVTmBUl1Cq/oOcnkZ8sUy6pVltK/eolV9A2bKSCeSOD055i8bhgFd1zlIre26KBLhjw3yUEffwjvD668n8V84S4l8H5RMCgP/K/mcXzI1xbRMaJoCSaqgVqui0ahBliWOXlflpGJ8B5mUCNtx0Gw2/WYYxiDxxS1C+oiZjk6ng263y0EqCAZjA8Iz8YTvO5o2UOj1FZaCkvk0MDYog0DeUHb6Fmm9Seh6Hk8ceBioLJ1n/ab4hKSmy28SSHGwZ0MKLdvmhKSOEprDhLrhwNQL0NoSGk0FhuGPHT3MXzBNn3B3B9l0qj8A+qAauz9RlUL+WqGud/nIUWYym0wP/KRzt69w7dtXFEoliKKIRCKBZDLJ9/liEdvr35HcWu8TMsaJCKqqQpZlvhI01SdM7f7G7Mw0ZgUBgiAgEo1y0J7meWbi8XWXg9KGG0MKA4/o5zAeCiE0OYXQ5OQtjD+ZxqOxMcTX13xCI/gPDsOyfJ88DxdpESuLL7HyavF/vF7C+5cvkDvaxz9LJr/QA9HyJwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 61.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACBElEQVQoz1VSTWsUQRDdv+RNQm6CiAjBXyBevHoQggc1YliJF8khXoSIF0+RiCgRFdE1ycaQbJJ1NiEBsx/uZrPO7EzP9PTMdPdUV8nMZNf4KKqb6n6vuqqrRDmQSGGaGB2C5JCkxoBBIrLC9q3Gwp3DxalaeapWvr7z+Or2o9uN5zfq83PHr0s0wtLwx1zv3UL/88POcidxCQmRBCQHYfdI9KywXQ9ae+z4J28diu5+2PkdO6UiLRG5CcxW+dOqeLbOX6yGryrhpy2BOBYnBERl6BxKSBgkQoSh1umQiT9uwIV0mBgMgyhWSCSVTKSMIJKp0qnWqVa5N4glRAQAA4Bo0GRG+Sar2gARDQanzWaz02+3Os1ut3eSw3YcAMjIUqtES0Bz3pAyBSJivu95LI5iEQohRCJlHMdaaywyExCpUekjqDRNQBGR57qMMcT/j4kysjawMqy9sTffOlsf2N5HVn/v7ay4uy9Pv+2KVtZIz3Ucu7g99mfkCOTl/fJF696E9eBSY/bawZMJ6/6kNXOhfnfJ2cjIzOOcF4QoinjI/5HPlEw2Jdn7tcl8ijT6Q621MQZzpEqDhiyeW2ksA1nD8zbnKOIA4Pt+EPCAc+b7Nnf73LZD94TbUSqLIUHMsyCN85HJV6X1WnXzS2Xt6+r698rG9K/FK82Zm+35yaPpZVb9C4kik6MEVDWIAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;kakao login&quot;
-        title=&quot;kakao login&quot;
-        src=&quot;/static/c274167fa4425fdbdd03f3c6f457bac5/c1b63/kakao_login.png&quot;
-        srcset=&quot;/static/c274167fa4425fdbdd03f3c6f457bac5/5a46d/kakao_login.png 300w,
-/static/c274167fa4425fdbdd03f3c6f457bac5/0a47e/kakao_login.png 600w,
-/static/c274167fa4425fdbdd03f3c6f457bac5/c1b63/kakao_login.png 1200w,
-/static/c274167fa4425fdbdd03f3c6f457bac5/8b640/kakao_login.png 1454w&quot;
-        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        alt=&quot;naver login&quot;
+        title=&quot;naver login&quot;
+        src=&quot;/static/c76f57f39ac3efc7c776797ba45ae62b/c23ad/naver_login.png&quot;
+        srcset=&quot;/static/c76f57f39ac3efc7c776797ba45ae62b/5a46d/naver_login.png 300w,
+/static/c76f57f39ac3efc7c776797ba45ae62b/0a47e/naver_login.png 600w,
+/static/c76f57f39ac3efc7c776797ba45ae62b/c23ad/naver_login.png 1193w&quot;
+        sizes=&quot;(max-width: 1193px) 100vw, 1193px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
         decoding=&quot;async&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;이 이미지에서 파란색 박스(카카오톡으로 로그인)을 클릭하면 1번 과정이 진행되는 것이고, 빨간색 박스가 클라이언트의 접근 요청을 승인할 것인지 선택하는 2번 과정이다.&lt;/p&gt;
-&lt;h3 id=&quot;authorization-request&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#authorization-request&quot; aria-label=&quot;authorization request permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Authorization Request&lt;/h3&gt;
+&lt;p&gt;3번 과정은 인증 서버가 유저 에이전트를 제공된 리다이렉션 URI로 이동시키는 과정이다. 이때 리다이렉션 URI에는 인증 코드와 로컬 상태가 포함된다.&lt;/p&gt;
+&lt;p&gt;4번은 클라이언트가 이전 과정에서 받은 인증 코드를 포함하여 인증 서버에 엑세스 토큰을 요청하는 단계이다. 요청을 보낼 때에는 3번 과정에서 사용했던 리다이렉션 URI도 포함하여 전달한다.&lt;/p&gt;
+&lt;p&gt;5번 과정에서 인증서버는 인증 코드가 유효한지 확인하고, 3번 과정과 4번 과정의 리다이렉션 URI가 동일한지 확인한다. 유효하다는 게 획인되면 엑세스 토큰과 (선택적으로) 리프레시 토큰을 응답한다.&lt;/p&gt;
+&lt;h3 id=&quot;인가-요청-authorization-request&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%EC%9A%94%EC%B2%AD-authorization-request&quot; aria-label=&quot;인가 요청 authorization request permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인가 요청 (Authorization Request)&lt;/h3&gt;
 &lt;p&gt;클라이언트는 인증 코드 요청을 할 때 &lt;code class=&quot;language-text&quot;&gt;application/x-www-form-urlencoded&lt;/code&gt; 를 사용하여 다음 파라미터를 포함해야한다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;response_type&lt;/code&gt;&lt;br&gt;
@@ -135,61 +133,60 @@
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;client_id&lt;/code&gt;&lt;br&gt;
 &lt;strong&gt;필수.&lt;/strong&gt; 클라이언트의 식별자&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;redirect_uri&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;선택사항.&lt;/strong&gt; &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-3.1.2&quot;&gt;rfc6749#section-3.1.2&lt;/a&gt; 참고&lt;/li&gt;
+&lt;strong&gt;선택사항.&lt;/strong&gt; 자세한 내용은 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-3.1.2&quot;&gt;RFC 6749 - Redirection Endpoint&lt;/a&gt; 참고&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;scope&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;선택사항.&lt;/strong&gt; &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-3.3&quot;&gt;rfc6749#section-3.3&lt;/a&gt; 참고&lt;/li&gt;
+&lt;strong&gt;선택사항.&lt;/strong&gt; 자세한 내용은 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-3.3&quot;&gt;RFC 6749 - Access Token Scope&lt;/a&gt; 참고&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;권장사항.&lt;/strong&gt; 인증 서버는 User-Agent를 클라이언트로 리다이렉트할 때 이 값을 포함한다. &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-10.12&quot;&gt;section-10.12&lt;/a&gt;에 기술된대로 사이트 간 요청 위조(Cross-Site Request Forgery)를 방지하는 데 사용하는 것이 좋다.&lt;/li&gt;
+&lt;strong&gt;권장사항.&lt;/strong&gt; 인증 서버는 유저 에이전트를 클라이언트로 리다이렉트할 때 이 값을 포함한다. &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-10.12&quot;&gt;RFC 6749 - Cross-Site Request Forgery&lt;/a&gt;에 기술된대로 사이트 간 요청 위조를 방지하는 데 사용하는 것이 좋다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;카카오 인가 코드 받기의 경우도 이 규칙을 지켜 다음과 같은 요청을 사용한다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GET /oauth/authorize?client_id={REST_API_KEY}&amp;amp;redirect_uri={REDIRECT_URI}&amp;amp;response_type=code HTTP/1.1
-Host: kauth.kakao.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;authorization-response&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#authorization-response&quot; aria-label=&quot;authorization response permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Authorization Response&lt;/h3&gt;
+&lt;p&gt;인가 요청의 예:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GET /authorize?response_type=code&amp;amp;client_id=s6BhdRkqt3&amp;amp;state=xyz&amp;amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb HTTP/1.1
+Host: server.example.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;인가-응답-authorization-response&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%EC%9D%91%EB%8B%B5-authorization-response&quot; aria-label=&quot;인가 응답 authorization response permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인가 응답 (Authorization Response)&lt;/h3&gt;
 &lt;p&gt;리소스 소유자가 접근 요청을 승인하면, 인증 서버는 다음의 파라미터를 &lt;code class=&quot;language-text&quot;&gt;application/x-www-form-urlencoded&lt;/code&gt; 를 사용하여 클라이언트에게 전달한다.&lt;/p&gt;
+&lt;h4 id=&quot;성공-응답-successful-response&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B1%EA%B3%B5-%EC%9D%91%EB%8B%B5-successful-response&quot; aria-label=&quot;성공 응답 successful response permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;성공 응답 (Successful Response)&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;code&lt;/code&gt;&lt;br&gt;
 &lt;strong&gt;필수.&lt;/strong&gt; 인증 서버에서 생성된 인증 코드이다. 유출 위험을 줄이기 위해 만료 시간이 짧아야 하며 최대 10분이 권장된다. 클라이언트는 인증 코드를 두 번 이상 사용하면 안된다. 만약 두번 이상 사용될 경우 인증 서버는 요청을 거부해야 하며, 해당 인증 코드 이전에 발급된 모든 토큰을 취소하는 것이 좋다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt;&lt;br&gt;
 클라이언트가 인증 요청 시 &lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt; 파라미터를 포함했다면 &lt;strong&gt;필수.&lt;/strong&gt; 클라이언트로부터 전달 받은 값과 동일해야한다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;카카오 인가 코드 받기의 경우도 이 규칙을 지켜 다음과 같은 응답을 사용한다.&lt;/p&gt;
+&lt;p&gt;성공 응답의 예:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 302 Found
-Content-Length: 0
-Location: {REDIRECT_URI}?code={AUTHORIZE_CODE}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;error-response&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#error-response&quot; aria-label=&quot;error response permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Error Response&lt;/h4&gt;
-&lt;p&gt;요청이 누락되거나, 유효하지 않는 경우, 리다이렉션 URI가 일치하지 않는 경우, 클라이언트 식별자가 누락되거나 유효하지 않는 경우는 User-Agent를 유효하지 않은 URI로 리다이렉트 되게 해서는 안된다. 이 경우에 인증 서버는 다음 파라미터를 사용하여 리소스 소유자에게 오류를 알려주는 것이 좋다. 이 역시 &lt;code class=&quot;language-text&quot;&gt;application/x-www-form-urlencoded&lt;/code&gt; 방식을 사용한다.&lt;/p&gt;
+Location: https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA&amp;amp;state=xyz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;오류-응답-error-response&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EB%A5%98-%EC%9D%91%EB%8B%B5-error-response&quot; aria-label=&quot;오류 응답 error response permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오류 응답 (Error Response)&lt;/h4&gt;
+&lt;p&gt;만약 요청이 누락되거나, 유효하지 않는 경우, 리다이렉션 URI가 일치하지 않는 경우, 클라이언트 식별자가 누락되거나 유효하지 않는 경우는 유저 에이전트를 유효하지 않은 URI로 리다이렉트 되게 해서는 안된다. 이 경우에 인증 서버는 다음 파라미터를 사용하여 리소스 소유자에게 오류를 알려주는 것이 좋다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;error&lt;/code&gt;&lt;br&gt;
 &lt;strong&gt;필수.&lt;/strong&gt; 다음의 에러 코드 사용
 &lt;ul&gt;
-&lt;li&gt;invalid_request&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;invalid_request&lt;/code&gt;&lt;br&gt;
 요청 시 필수 파라미터의 누락, 유효하지 않은 파라미터 포함, 파라미터를 두 번 이상 포함 등&lt;/li&gt;
-&lt;li&gt;unauthorized_client&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;unauthorized_client&lt;/code&gt;&lt;br&gt;
 클라이언트가 이 인가 승인 유형을 사용할 권한이 없음&lt;/li&gt;
-&lt;li&gt;access_denied&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;access_denied&lt;/code&gt;&lt;br&gt;
 리소스 소유자 또는 인증 서버가 요청을 거부&lt;/li&gt;
-&lt;li&gt;unsupported_response_type&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;unsupported_response_type&lt;/code&gt;&lt;br&gt;
 인증 서버가 Authorization Code Grant 유형을 지원하지 않음&lt;/li&gt;
-&lt;li&gt;invalid_scope&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;invalid_scope&lt;/code&gt;&lt;br&gt;
 요청한 scope가 유효하지 않거나, 알 수 없거나, 손상된 경우&lt;/li&gt;
-&lt;li&gt;server_error&lt;br&gt;
-인증 서버에 예기치 못한 오류가 발생 (500 Internal Server Error 상태 코드는 HTTP redirect를 통해 클라이언트에게 전달 될 수 없기 때문에 이 오류 코드가 필요)&lt;/li&gt;
-&lt;li&gt;temporarily_unavailable&lt;br&gt;
-인증 서버의 과부하 또는 유지보수로 인해 요청을 처리할 수 없음 (503 Service Unavailable 상태 코드는 HTTP redirect를 통해 클라이언트에게 전달 될 수 없기 때문에 이 오류 코드가 필요)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;server_error&lt;/code&gt;&lt;br&gt;
+인증 서버에 예기치 못한 오류가 발생&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;temporarily_unavailable&lt;/code&gt;&lt;br&gt;
+인증 서버의 과부하 또는 유지보수로 인해 요청을 처리할 수 없음&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;error_description&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;선택사항.&lt;/strong&gt; 클라이언트 개발자가 발생한 오류를 이해하는 데 도움을 주는 정보를 제공한다. 사람이 읽을 수 있는 문자로 %x20-21 / %x23-5B / %x5D-7E 범위를 벗어나는 문자를 사용하면 안된다.&lt;/li&gt;
+&lt;strong&gt;선택사항.&lt;/strong&gt; 클라이언트 개발자가 발생한 오류를 이해하는 데 도움을 주는 정보를 제공한다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;error_uri&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;선택사항.&lt;/strong&gt; 클라이언트 개발자를 위해 발생한 오류와 관련된 추가 정보를 제공한다. %x21 / %x23-5B / %x5D-7E 범위를 벗어나는 문자를 사용하면 안된다.&lt;/li&gt;
+&lt;strong&gt;선택사항.&lt;/strong&gt; 클라이언트 개발자를 위해 발생한 오류와 관련된 추가 정보를 제공한다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt;&lt;br&gt;
 클라이언트가 인증 요청 시 &lt;code class=&quot;language-text&quot;&gt;state&lt;/code&gt; 파라미터를 포함했다면 &lt;strong&gt;필수.&lt;/strong&gt; 클라이언트로부터 전달 받은 값과 동일해야한다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;카카오의 경우도 리소스 접근 요청 단계에서 로그인을 취소할 시 다음과 같은 응답이 온다.&lt;/p&gt;
+&lt;p&gt;오류 응답의 예:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 302 Found
-Content-Length: 0
-Location: {REDIRECT_URI}?error=access_denied&amp;amp;error_description=User%20denied%20access&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;access-token-request&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#access-token-request&quot; aria-label=&quot;access token request permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Access Token Request&lt;/h3&gt;
+Location: https://client.example.com/cb?error=access_denied&amp;amp;state=xyz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;엑세스-토큰-요청-access-token-request&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%91%EC%84%B8%EC%8A%A4-%ED%86%A0%ED%81%B0-%EC%9A%94%EC%B2%AD-access-token-request&quot; aria-label=&quot;엑세스 토큰 요청 access token request permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;엑세스 토큰 요청 (Access Token Request)&lt;/h3&gt;
 &lt;p&gt;클라이언트는 토큰 요청시 UTF-8 인코딩을 사용하여 &lt;code class=&quot;language-text&quot;&gt;application/x-www-form-urlencoded&lt;/code&gt; 형식으로 된 다음과 같은 파라미터를 body에 담아야한다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;grant_type&lt;/code&gt;&lt;br&gt;
@@ -199,68 +196,71 @@ Location: {REDIRECT_URI}?error=access_denied&amp;amp;error_description=User%20de
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;redirect_uri&lt;/code&gt;&lt;br&gt;
 인증 요청 시 &lt;code class=&quot;language-text&quot;&gt;redirect_uri&lt;/code&gt;가 존재했다면 &lt;strong&gt;필수&lt;/strong&gt;이며, 인증 요청 시 사용했던 값과 동일해야 한다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;client_id&lt;/code&gt;&lt;br&gt;
-클라이언트가 인증 서버와 인증하지 않는 경우 &lt;strong&gt;필수.&lt;/strong&gt;&lt;/li&gt;
+클라이언트가 인증 서버와 인증하지 않는 경우 &lt;strong&gt;필수.&lt;/strong&gt; 클라이언트 인증에 관한 자세한 내용은 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-3.2.1&quot;&gt;RFC 6749 - Client Authentication&lt;/a&gt;를 참고한다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;클라이언트 인증에 관해서는 이 포스팅에서 설명하지 않으며, 혹시 내용이 궁금하다면 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-3.2.1&quot;&gt;rfc6749#section-3.2.1&lt;/a&gt;를 참고한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;access-token-response&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#access-token-response&quot; aria-label=&quot;access token response permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Access Token Response&lt;/h3&gt;
+&lt;p&gt;토큰 요청의 예:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;POST /token HTTP/1.1
+Host: server.example.com
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+Content-Type: application/x-www-form-urlencodedgrant_type=authorization_code&amp;amp;code=SplxlOBeZQQYbYS6WxSbIA&amp;amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;엑세스-토큰-응답-access-token-response&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%91%EC%84%B8%EC%8A%A4-%ED%86%A0%ED%81%B0-%EC%9D%91%EB%8B%B5-access-token-response&quot; aria-label=&quot;엑세스 토큰 응답 access token response permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;엑세스 토큰 응답 (Access Token Response)&lt;/h3&gt;
 &lt;p&gt;Access Token 요청이 유효하고 인증되었다면, 인증 서버는 Access Token과 선택적으로 갱신 토큰을 발급한다.&lt;/p&gt;
-&lt;h4 id=&quot;successful-response&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#successful-response&quot; aria-label=&quot;successful response permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Successful Response&lt;/h4&gt;
+&lt;h4 id=&quot;성공-응답-successful-response-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%B1%EA%B3%B5-%EC%9D%91%EB%8B%B5-successful-response-1&quot; aria-label=&quot;성공 응답 successful response 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;성공 응답 (Successful Response)&lt;/h4&gt;
 &lt;p&gt;인증 서버는 Access Token과 선택적으로 갱신 토큰을 발급하고, 다음 파라미터를 200 (OK) 상태 코드로 응답한다. 파라미터는 &lt;code class=&quot;language-text&quot;&gt;application/json&lt;/code&gt; 유형을 사용하여 HTTP Response Body에 포함한다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;access_token&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;필수.&lt;/strong&gt; 인증 서버가 발급한 Access Token&lt;/li&gt;
+&lt;strong&gt;필수.&lt;/strong&gt; 인증 서버가 발급한 엑세스 토큰&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;token_type&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;필수.&lt;/strong&gt; &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-7.1&quot;&gt;rfc6749#section-7.1&lt;/a&gt;에 기술된 토큰의 타입으로 보통 &lt;code class=&quot;language-text&quot;&gt;baerer&lt;/code&gt; 타입을 많이 사용한다.&lt;/li&gt;
+&lt;strong&gt;필수.&lt;/strong&gt; 토큰의 타입으로 보통 &lt;code class=&quot;language-text&quot;&gt;baerer&lt;/code&gt; 타입을 많이 사용한다. 자세한 내용은  &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-7.1&quot;&gt;RFC 6749 - Access Token Types&lt;/a&gt;를 참고한다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;expires_in&lt;/code&gt;&lt;br&gt;
 &lt;strong&gt;권장사항.&lt;/strong&gt; 초 단위의 Access Token 수명. 예를 들어 값이 3600이라면 토큰이 생성된 시간으로부터 3600초(1 시간) 뒤에 만료된다는 의미이다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;refresh_token&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;선택사항.&lt;/strong&gt; Refresh Token으로 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-6&quot;&gt;rfc6749#section-6&lt;/a&gt;에 기술된 대로 새로운 Access Token을 발급 받는데 사용한다.&lt;/li&gt;
+&lt;strong&gt;선택사항.&lt;/strong&gt; 인증 서버가 발급한 리프레시 토큰&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;scope&lt;/code&gt;&lt;br&gt;
-클라이언트가 요청한 범위와 동일하다면 &lt;strong&gt;선택사항.&lt;/strong&gt; 그렇지 않은 경우 &lt;strong&gt;필수.&lt;/strong&gt; &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-3.3&quot;&gt;rfc6749#section-3.3&lt;/a&gt;에 기술된 Access Token의 범위이다.&lt;/li&gt;
+클라이언트가 요청한 범위와 동일하다면 &lt;strong&gt;선택사항.&lt;/strong&gt; 그렇지 않은 경우 &lt;strong&gt;필수.&lt;/strong&gt; 자세한 내용은 &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749#section-3.3&quot;&gt;RFC 6749 - Access Token Scope&lt;/a&gt;를 참고한다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;카카오의 경우 다음과 같은 응답이 온다.&lt;/p&gt;
+&lt;p&gt;성공 응답의 예:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
+Cache-Control: no-store
+Pragma: no-cache
 {
-    &quot;token_type&quot;:&quot;bearer&quot;,
-    &quot;access_token&quot;:&quot;{ACCESS_TOKEN}&quot;,
-    &quot;expires_in&quot;:43199,
-    &quot;refresh_token&quot;:&quot;{REFRESH_TOKEN}&quot;,
-    &quot;refresh_token_expires_in&quot;:25184000,
-    &quot;scope&quot;:&quot;account_email profile&quot;
+    &quot;access_token&quot;:&quot;2YotnFZFEjr1zCsicMWpAA&quot;,
+    &quot;token_type&quot;:&quot;example&quot;,
+    &quot;expires_in&quot;:3600,
+    &quot;refresh_token&quot;:&quot;tGzv3JOkF0XG5Qx2TlKWIA&quot;,
+    &quot;example_parameter&quot;:&quot;example_value&quot;
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;error-response-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#error-response-1&quot; aria-label=&quot;error response 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Error Response&lt;/h4&gt;
+&lt;h4 id=&quot;오류-응답-error-response-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EB%A5%98-%EC%9D%91%EB%8B%B5-error-response-1&quot; aria-label=&quot;오류 응답 error response 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오류 응답 (Error Response)&lt;/h4&gt;
 &lt;p&gt;인증 서버는 다음 파라미터를 400 (Bad Request) 상태 코드로 응답한다. 파라미터는 &lt;code class=&quot;language-text&quot;&gt;application/json&lt;/code&gt; 유형을 사용하여 HTTP Response Body에 포함한다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;error&lt;/code&gt;&lt;br&gt;
 &lt;strong&gt;필수.&lt;/strong&gt; 다음의 에러 코드 사용
 &lt;ul&gt;
-&lt;li&gt;invalid_request&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;invalid_request&lt;/code&gt;&lt;br&gt;
 요청 시 필수 파라미터의 누락, 유효하지 않은 파라미터 포함, 파라미터를 두 번 이상 포함 등&lt;/li&gt;
-&lt;li&gt;invalid_client&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;invalid_client&lt;/code&gt;&lt;br&gt;
 클라이언트가 인증에 실패한 경우 (e.g. 알 수 없는 클라이언트, 클라이언트 인증이 포함되지 않음, 지원되지 않는 인증 방법).&lt;/li&gt;
-&lt;li&gt;invalid_grant&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;invalid_grant&lt;/code&gt;&lt;br&gt;
 인가 승인 유형 또는 Refresh Token이 유효하지 않거나, 만료, 취소된 경우 또는 인증 요청에 사용된 리다이렉션 URI가 일치하지 않거나 다른 클라이언트에게 발급된 경우&lt;/li&gt;
-&lt;li&gt;unauthorized_client&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;unauthorized_client&lt;/code&gt;&lt;br&gt;
 클라이언트가 이 인가 승인 유형을 사용할 권한이 없음&lt;/li&gt;
-&lt;li&gt;access_denied&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;access_denied&lt;/code&gt;&lt;br&gt;
 리소스 소유자 또는 인증 서버가 요청을 거부&lt;/li&gt;
-&lt;li&gt;unsupported_grant_type&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;unsupported_grant_type&lt;/code&gt;&lt;br&gt;
 서버가 지원하지 않는 인가 승인 유형인 경우&lt;/li&gt;
-&lt;li&gt;temporarily_unavailable&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;temporarily_unavailable&lt;/code&gt;&lt;br&gt;
 인증 서버의 과부하 또는 유지보수로 인해 요청을 처리할 수 없음 (503 Service Unavailable 상태 코드는 HTTP redirect를 통해 클라이언트에게 전달 될 수 없기 때문에 이 오류 코드가 필요)&lt;/li&gt;
-&lt;li&gt;invalid_scope&lt;br&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;invalid_scope&lt;/code&gt;&lt;br&gt;
 요청한 scope가 유효하지 않거나, 알 수 없거나, 손상된 경우&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;error_description&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;선택사항.&lt;/strong&gt; 클라이언트 개발자가 발생한 오류를 이해하는 데 도움을 주는 정보를 제공한다. 사람이 읽을 수 있는 문자로 %x20-21 / %x23-5B / %x5D-7E 범위를 벗어나는 문자를 사용하면 안된다.&lt;/li&gt;
+&lt;strong&gt;선택사항.&lt;/strong&gt; 클라이언트 개발자가 발생한 오류를 이해하는 데 도움을 주는 정보를 제공한다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;error_uri&lt;/code&gt;&lt;br&gt;
-&lt;strong&gt;선택사항.&lt;/strong&gt; 클라이언트 개발자를 위해 발생한 오류와 관련된 추가 정보를 제공한다. %x21 / %x23-5B / %x5D-7E 범위를 벗어나는 문자를 사용하면 안된다.&lt;/li&gt;
+&lt;strong&gt;선택사항.&lt;/strong&gt; 클라이언트 개발자를 위해 발생한 오류와 관련된 추가 정보를 제공한다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;예를 들어 다음과 같은 실패 응답이 존재할 수 있음&lt;/p&gt;
+&lt;p&gt;오류 응답의 예:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 400 Bad Request
 Content-Type: application/json;charset=UTF-8
 Cache-Control: no-store
@@ -269,13 +269,14 @@ Pragma: no-cache
 {
     &quot;error&quot;:&quot;invalid_request&quot;
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&quot;사용-예&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9-%EC%98%88&quot; aria-label=&quot;사용 예 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사용 예&lt;/h1&gt;
-&lt;h2 id=&quot;카카오&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B9%B4%EC%B9%B4%EC%98%A4&quot; aria-label=&quot;카카오 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;카카오&lt;/h2&gt;
-&lt;p&gt;우리가 잘 아는 카카오에서도 OAuth를 사용한다. &lt;a href=&quot;https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api&quot;&gt;카카오 로그인&lt;/a&gt; REST API 문서를 확인해보면, 카카오 로그인을 위해서 인가 코드 받기, 토큰 받기 두 과정을 거친다. 이 과정이 &lt;a href=&quot;#authorization-code-grant&quot;&gt;Authorization Code Grant&lt;/a&gt;와 동일하다. 이렇게 발급받은 토큰은 &lt;a href=&quot;https://developers.kakao.com/docs/latest/ko/kakaostory/rest-api&quot;&gt;카카오스토리 API&lt;/a&gt; 등을 사용할 때 필요하다. 예를 들어 카카오스토리의 프로필 가져오기 API를 사용하려면 이 발급받은 토큰이 필요하다. 이 과정이 &lt;a href=&quot;#protocol-flow&quot;&gt;Protocol Flow&lt;/a&gt;의 5,6번 과정에 속한다.&lt;/p&gt;
-&lt;h2 id=&quot;네이버&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%84%A4%EC%9D%B4%EB%B2%84&quot; aria-label=&quot;네이버 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;네이버&lt;/h2&gt;
+&lt;h2 id=&quot;사용-예&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9-%EC%98%88&quot; aria-label=&quot;사용 예 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사용 예&lt;/h2&gt;
+&lt;p&gt;카카오와 네이버에서도 OAuth 2.0 방식의 로그인 API를 제공한다.&lt;/p&gt;
+&lt;h3 id=&quot;카카오&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B9%B4%EC%B9%B4%EC%98%A4&quot; aria-label=&quot;카카오 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;카카오&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api&quot;&gt;카카오 로그인&lt;/a&gt; 문서를 확인해보면, 카카오 로그인을 위해서 인가 코드 받기, 토큰 받기 두 과정을 거친다. 이 과정이 &lt;a href=&quot;#%EC%9D%B8%EA%B0%80-%ED%9A%8D%EB%93%9D-obtaining-authorization&quot;&gt;인가 획득&lt;/a&gt;과 동일하다. 이렇게 발급받은 토큰은 &lt;a href=&quot;https://developers.kakao.com/docs/latest/ko/kakaostory/rest-api&quot;&gt;카카오스토리 API&lt;/a&gt; 등을 사용할 때 필요하다. 예를 들어 카카오스토리의 프로필 가져오기 API를 사용하려면 이 발급받은 토큰이 필요하다. 이 과정이 &lt;a href=&quot;#oauth-20%EC%9D%98-%ED%9D%90%EB%A6%84&quot;&gt;OAuth 2.0의 흐름&lt;/a&gt;의 5,6번 과정에 속한다.&lt;/p&gt;
+&lt;h3 id=&quot;네이버&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%84%A4%EC%9D%B4%EB%B2%84&quot; aria-label=&quot;네이버 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;네이버&lt;/h3&gt;
 &lt;p&gt;네이버도 OAuth를 이용하며, &lt;a href=&quot;https://developers.naver.com/docs/login/api/api.md&quot;&gt;네이버 로그인 API 명세&lt;/a&gt;에서 확인할 수 있다. 카카오와 마찬가지로 인가 코드 받기, 토큰 받기 두 과정을 거친다. 이렇게 발급받은 토큰을 사용하여 회원 프로필 조회 API, 카페 API 등을 사용할 수 있다.&lt;/p&gt;
-&lt;h1 id=&quot;마무리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EB%AC%B4%EB%A6%AC&quot; aria-label=&quot;마무리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마무리&lt;/h1&gt;
-&lt;p&gt;이 포스팅은 소셜 로그인 구현에 도움이 되는 내용에 초점을 맞춰 생략된 부분이 많다. 만약 OAuth 2.0에 대해 더 자세히 알고 싶다면, &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749&quot;&gt;RFC 6749&lt;/a&gt;을 참고하는 것이 좋다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[웹 에디터로 이미지를 만들어보자]]></title><description><![CDATA[…]]></description><link>https://disj11.github.io/toy-project/web-canvas/</link><guid isPermaLink="false">https://disj11.github.io/toy-project/web-canvas/</guid><pubDate>Thu, 21 Oct 2021 08:10:52 GMT</pubDate><content:encoded>&lt;h2 id=&quot;소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소개&lt;/h2&gt;
+&lt;h2 id=&quot;마무리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EB%AC%B4%EB%A6%AC&quot; aria-label=&quot;마무리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마무리&lt;/h2&gt;
+&lt;p&gt;이 포스팅은 OAuth 2.0의 클라이언트 구현에 도움이 되는 내용에 초점을 맞춰 생략된 부분이 많다. 만약 OAuth 2.0에 대해 더 자세히 알고 싶다면, &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6749&quot;&gt;RFC 6749&lt;/a&gt;을 참고하는 것이 좋다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[웹 에디터로 이미지를 만들어보자]]></title><description><![CDATA[…]]></description><link>https://disj11.github.io/toy-project/web-canvas/</link><guid isPermaLink="false">https://disj11.github.io/toy-project/web-canvas/</guid><pubDate>Thu, 21 Oct 2021 08:10:52 GMT</pubDate><content:encoded>&lt;h2 id=&quot;소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소개&lt;/h2&gt;
 &lt;p&gt;웹 상에서 간단한 이미지를 제작할 수 있는 사이트입니다. 이용해 보시려면 &lt;a href=&quot;https://disj11.github.io/canvas&quot;&gt;여기&lt;/a&gt; 를 클릭해주세요.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
