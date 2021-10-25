@@ -40,7 +40,7 @@ Isolation level은 트랜잭션에서 일관성이 없는 데이터를 허용하
 커밋되지 않은 데이터를 다른 트랜잭션에서 읽을 수 있도록 허용할 때 발생한다.
 
 |Transaction 1|Transaction 2|
-    |-------------|-------------|
+|-------------|-------------|
 |`SELECT age FROM users WHERE id = 1;`||
 ||`UPDATE users SET age = 21 WHERE id = 1;`|
 |`SELECT age FROM users WHERE id = 1;`||
@@ -51,7 +51,7 @@ Isolation level은 트랜잭션에서 일관성이 없는 데이터를 허용하
 한 트랜잭션 내에서 같은 쿼리를 두 번 수행할 때, 그 사이에 다른 트랜잭션이 값을 수정 또는 삭제함으로써 첫 번째와 두 번째 조회의 결과가 다르게 나타나는 현상을 말한다.
 
 |Transaction 1|Transaction 2|
-    |-------------|-------------|
+|-------------|-------------|
 |`SELECT age FROM users WHERE id = 1;`||
 ||`UPDATE users SET age = 21 WHERE id = 1;`|
 ||`COMMIT;`|
@@ -63,7 +63,7 @@ Isolation level은 트랜잭션에서 일관성이 없는 데이터를 허용하
 한 트랜잭션 내에서 일정 범위의 레코드를 두 번 이상 읽을 때, 첫 번째 쿼리에서는 없었던 레코드가 이후의 쿼리에서 나타나는 현상을 말한다.
 
 |Transaction 1|Transaction 2|
-    |-------------|-------------|
+|-------------|-------------|
 |`SELECT age FROM users WHERE age < 20`||
 ||`INSERT INTO users(name, age) VALUES ('홍길동', 10);`|
 ||`COMMIT;`|
