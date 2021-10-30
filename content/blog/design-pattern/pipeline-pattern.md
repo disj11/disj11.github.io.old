@@ -1,6 +1,6 @@
 ---
 title: Pipeline Pattern (파이프라인 패턴)
-date: 2019-07-09 23:3325
+date: 2019-07-09 23:33:25
 category: design-pattern
 draft: false
 ---
