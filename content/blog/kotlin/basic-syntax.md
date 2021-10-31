@@ -285,7 +285,7 @@ while (index < items.size) {
 ```kotlin
 val x = 10
 val y = 9
-if (x in 1...y+1) {
+if (x in 1..y+1) {
     prinln("fits in range")
 }
 ```
