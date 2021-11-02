@@ -1,5 +1,5 @@
 ---
-title: 숫자 포맷 (DecimalFormat)
+title: 넘버 포맷 (DecimalFormat)
 date: 2021-11-01 20:00:65
 category: java
 draft: false

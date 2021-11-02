@@ -1,6 +1,6 @@
 ---
-title: 함수형 프로그래밍을 쉽게 사용하기 위한 접근 방법
-date: 2021-11-01 20:37:74
+title: 함수형 프로그래밍을 쉽게 접근하기 위한 방법
+date: 2021-11-02 13:28:74
 category: java
 draft: false
 ---
@@ -107,14 +107,14 @@ public class UseMap {
     // ...
     
     public static void incrementPageVisit(Map<String, Integer> pageVisits, String page) {
-        pageVisits.merge(page, 1, (oldValue, value) ‑> oldValue + value);
+        pageVisits.merge(page, 1, (oldValue, value) -> oldValue + value);
     }
 }
 ```
 
 `merge()` 는 세 가지 매개변수를 받는다. 첫 번째는 값을 업데이트 해야 하는 키이다. 두 번째는 해당 키가 존재하지 않을 때 사용할 초기 값이다. 세 번째는 맵의 현재 값과 병합할 두 번째 값을 매개변수로 갖는 함수이다. 이 코드에서는 두 매개변수의 합계를 반환하도록 하였다.
 
-## 마무리
+## 결론
 
 자바에서 함수형 프로그래밍 스타일을 사용하면 많은 이점을 얻을 수 있다. 코드가 간결해지고, 표현력이 좋아진다. 병렬 처리도 쉬워지며 일반적으로 객체 지향 코드보다 이해하기 쉽다. 명령형 프로그래밍 사고 방식을 선언적 프로그래밍 사고 방식으로 바꾸고, 함수형 프로그래밍 스타일을 사용해보자.
 
