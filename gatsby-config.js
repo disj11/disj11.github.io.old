@@ -192,7 +192,7 @@ module.exports = {
                 enablePartialUpdates: true, // default: false
                 matchFields: ['slug', 'modified'], // Array<String> default: ['modified']
                 concurrentQueries: false, // default: true
-                skipIndexing: process.env.ALGOLIA_SKIPPING_INDEX, // default: false, useful for e.g. preview deploys or local development
+                skipIndexing: process.env.ALGOLIA_SKIPPING_INDEX === 'true', // default: false, useful for e.g. preview deploys or local development
                 continueOnFailure: false, // default: false, don't fail the build if algolia indexing fails
             },
         },
