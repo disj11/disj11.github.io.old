@@ -7,11 +7,11 @@ draft: false
 
 ## 개요
 
-이전까지 자바에서 사용하던 `HttpURLConnection` 는 수준이 너무 낮아 서드 파티 라이브러리인 [Apache HttpClient](https://hc.apache.org/httpcomponents-client-5.1.x/), [Jetty](https://www.eclipse.org/jetty/documentation.php), 스프링의 [RestTemplate](https://www.baeldung.com/rest-template)를 많이 사용하였다. 하지만 Java 11 에서 HTTP/2와 Web Socket을 구현하는 HTTP Client API 의 표준화가 정식으로 도입되었다. 이번 포스팅에서는 Java 11 에서 채택된 HTTP Client API 표준화에 대해 알아본다.
+이전까지 자바에서 사용하던 `HttpURLConnection` 는 지원 수준이 너무 낮아 서드 파티 라이브러리인 [Apache HttpClient](https://hc.apache.org/httpcomponents-client-5.1.x/), [Jetty](https://www.eclipse.org/jetty/documentation.php), 스프링의 [RestTemplate](https://www.baeldung.com/rest-template)를 많이 사용하였다. 하지만 Java 11 에서 HTTP/2와 Web Socket을 구현하는 HTTP Client API 의 표준화가 정식으로 도입되었다. 이번 포스팅에서는 Java 11 에서 채택된 HTTP Client API 표준화에 대해 알아본다.
 
 ## 변경점 (JEP 321)
 
-1. Java 9 에서 HTTP API가 공식적으로 Java SE API에 통합 되었다. 새로운 [HTTP APIs](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/package-summary.html) 는 `java.net.HTTP.*` 패키지에서 확인할 수 있다.
+1. Java 9 에서 도입되었던 HTTP API가 이제 공식적으로 Java SE API에 통합 되었다. 새로운 [HTTP APIs](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/package-summary.html) 는 `java.net.HTTP.*` 패키지에서 확인할 수 있다.
 
 2. 최신 버전의 HTTP 프로토콜은 stream multiplexing, header compression 와 push promises 등을 통해 전반벅인 성능이 향상되었다.
 
@@ -384,4 +384,4 @@ assertThat(response.version(), equalTo(HttpClient.Version.HTTP_1_1));
 
  ## 참조
 
-(Exploring the New HTTP Client in Java)[https://www.baeldung.com/java-9-http-client#api]
+[Exploring the New HTTP Client in Java](https://www.baeldung.com/java-9-http-client)
