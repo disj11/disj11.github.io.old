@@ -1,6 +1,6 @@
 ---
 title: 리스트를 N 크기의 리스트로 나누기
-date: 2021-11-19 11:11:81
+date: 2021-11-19 21:34:81
 category: java
 draft: false
 ---
