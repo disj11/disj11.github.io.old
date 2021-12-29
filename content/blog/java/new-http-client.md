@@ -196,9 +196,9 @@ HttpRequest request = HttpRequest.newBuilder()
 
 모든 요청은 `HttpClient` 를 통해 전송한다. `HttpClient` 는 `HttpClient.newBuilder()` 메서드 또는 `HttpClient.newHttpClient()` 를 통해 얻을 수 있다.
 
-### Request Body 핸들링
+### Response Body 핸들링
 
-Publisher 와 비슷하게 Request Body handler 생성을 위한 메서드가 있다.
+Publisher 와 비슷하게 Response Body handler 생성을 위한 메서드가 있다.
 
 ```
 BodyHandlers.ofByteArray
