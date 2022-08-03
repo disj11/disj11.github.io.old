@@ -3,7 +3,7 @@ module.exports = {
   description: `개발과 관련된 내용을 기록하는 곳 입니다.`,
   author: `tykim`,
   introduction: `I am a Developer`,
-  siteUrl: `https://disj11.github.io`, // Your blog site url
+  siteUrl: `https://disj11.github.io/old`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     github: `disj11`, // Your GitHub account
