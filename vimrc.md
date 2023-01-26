@@ -1,3 +1,12 @@
+.ideavimrc
+
+```
+source ~/.vimrc
+```
+
+
+.vimrc or _vimrc
+
 ```
 let mapleader=" "
 
